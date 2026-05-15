@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the GhostlyShare user guide
+    url: https://github.com/Nix1983/GhostlyShare-Releases/wiki
+    about: Start here for installation, app detection, custom domains, and troubleshooting.
+  - name: Download the latest release
+    url: https://github.com/Nix1983/GhostlyShare-Releases/releases/latest
+    about: Make sure you are using the newest available GhostlyShare release.

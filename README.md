@@ -32,6 +32,16 @@ Good starting points:
 - [Windows and Linux Differences](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Windows-and-Linux)
 - [Troubleshooting](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Troubleshooting)
 
+## Bugs and Feature Requests
+
+Use GitHub Issues to report bugs or request user-facing improvements:
+
+- [Report a bug](https://github.com/Nix1983/GhostlyShare-Releases/issues/new?template=bug_report.yml)
+- [Request a feature](https://github.com/Nix1983/GhostlyShare-Releases/issues/new?template=feature_request.yml)
+
+Please do not post Cloudflare API tokens, passwords, private URLs, or other secrets
+in public issues.
+
 ## Ubuntu / Debian Install
 
 Download the latest package:

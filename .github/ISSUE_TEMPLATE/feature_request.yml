@@ -1,0 +1,81 @@
+name: Feature request
+description: Suggest an improvement or new GhostlyShare behavior.
+title: "[Feature]: "
+labels:
+  - enhancement
+  - needs triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement.
+
+        Feature requests are most useful when they explain the user problem, the workflow, and why the current behavior is not enough.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Which platform would benefit from this?
+      options:
+        - Windows
+        - Ubuntu / Debian Linux
+        - Both Windows and Linux
+        - Not platform-specific
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - App detection
+        - Go Public / random URL
+        - Custom domain
+        - Cloudflare setup
+        - Tray icon or window behavior
+        - Installation or updates
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or workflow
+      description: What are you trying to do, and what makes it awkward today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior
+      description: Describe what you would like GhostlyShare to do.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives tried
+      description: What workaround do you use today, if any?
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add screenshots, examples, or links if they help explain the request.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: This is a user-facing request, not a request for source code or private implementation details.
+          required: true
+        - label: I removed tokens, passwords, private URLs, and other secrets from this request.
+          required: true

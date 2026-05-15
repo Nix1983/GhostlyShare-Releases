@@ -1,0 +1,119 @@
+name: Bug report
+description: Report something in GhostlyShare that is not working as expected.
+title: "[Bug]: "
+labels:
+  - bug
+  - needs triage
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a GhostlyShare issue.
+
+        Before submitting, please check the [Troubleshooting guide](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Troubleshooting). Do not paste Cloudflare API tokens, passwords, private URLs, or other secrets.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: Where did the problem happen?
+      options:
+        - Windows
+        - Ubuntu / Debian Linux
+        - Both Windows and Linux
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: GhostlyShare version
+      description: Use the version shown in GhostlyShare or the release you installed.
+      placeholder: "Example: 1.1.4.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What is affected?
+      options:
+        - App detection
+        - Go Public / random URL
+        - Custom domain
+        - Cloudflare token storage
+        - Cloudflare process cleanup
+        - Tray icon or window behavior
+        - Installation or update
+        - Documentation
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect GhostlyShare to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead? Include exact error messages if you saw any.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: List the smallest set of steps that reproduce the issue.
+      placeholder: |
+        1. Start my local app with ...
+        2. Open GhostlyShare
+        3. Select ...
+        4. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: local_app
+    attributes:
+      label: Local app details
+      description: If this is about app detection or sharing, describe the local app.
+      placeholder: |
+        Local URL: http://localhost:3000
+        Framework/runtime: Vite, ASP.NET Core, python3 -m http.server, etc.
+        HTML title or API type:
+        Does it open locally in a browser?
+
+  - type: textarea
+    id: linux_desktop
+    attributes:
+      label: Linux desktop details
+      description: Linux only. Paste the output of these commands if relevant.
+      render: shell
+      placeholder: |
+        echo $XDG_CURRENT_DESKTOP
+        echo $XDG_SESSION_TYPE
+        echo $DESKTOP_SESSION
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Add screenshots, logs, or notes. Please remove secrets before posting.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the Troubleshooting guide.
+          required: true
+        - label: I removed tokens, passwords, private URLs, and other secrets from this report.
+          required: true
