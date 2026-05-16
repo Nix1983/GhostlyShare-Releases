@@ -11,6 +11,7 @@ body:
         Thanks for suggesting an improvement.
 
         Feature requests are most useful when they explain the user problem, the workflow, and why the current behavior is not enough.
+        Do not paste Cloudflare API tokens, passwords, private URLs, logs with secrets, or other sensitive information.
 
   - type: dropdown
     id: platform
@@ -34,7 +35,9 @@ body:
         - App detection
         - Go Public / random URL
         - Custom domain
+        - Password protection
         - Cloudflare setup
+        - Cleanup / uninstall
         - Tray icon or window behavior
         - Installation or updates
         - Documentation
@@ -68,7 +71,7 @@ body:
     id: context
     attributes:
       label: Additional context
-      description: Add screenshots, examples, or links if they help explain the request.
+      description: Add examples or links if they help explain the request. Please remove secrets before posting.
 
   - type: checkboxes
     id: checklist

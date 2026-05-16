@@ -42,8 +42,10 @@ body:
         - App detection
         - Go Public / random URL
         - Custom domain
+        - Password protection
         - Cloudflare token storage
         - Cloudflare process cleanup
+        - Cleanup / uninstall
         - Tray icon or window behavior
         - Installation or update
         - Documentation
