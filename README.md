@@ -1,6 +1,7 @@
 # GhostlyShare
 
 [![Ubuntu .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Ubuntu%20%2F%20Debian%20.deb&logo=ubuntu&logoColor=white&color=e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Windows setup](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20setup.exe&logo=windows&logoColor=white&color=0078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows Store](https://img.shields.io/badge/Windows-Microsoft%20Store-0078d4?logo=microsoftstore&logoColor=white)](https://apps.microsoft.com/detail/9PJ6DBC342GR)
 [![User Wiki](https://img.shields.io/badge/docs-user%20wiki-2ea44f)](https://github.com/Nix1983/GhostlyShare-Releases/wiki)
 [![License](https://img.shields.io/badge/license-proprietary-6f42c1)](#license)
@@ -26,8 +27,19 @@ application source code is private and is not included here.
 
 | Platform | Download |
 |:--|:--|
+| Windows setup `.exe` | [Download the latest setup](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) |
+| Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) |
 | Ubuntu / Debian Linux | [Download the latest `.deb` package](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) |
-| Windows | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) |
+
+### Windows Download Note
+
+The Windows setup `.exe` is provided for users who prefer a direct download outside
+the Microsoft Store. It is currently unsigned, so Windows may show a SmartScreen or
+download warning before installation.
+
+If you prefer a signed Microsoft install flow, use the Microsoft Store package
+instead. The Store/MSIX package is delivered through Microsoft and should avoid the
+unsigned direct-download warning.
 
 ## Public Link Options
 
