@@ -14,6 +14,16 @@ GhostlyShare is a private, proprietary application. This repository is only the 
 release, download, issue, support, and user documentation home for GhostlyShare. The
 application source code is private and is not included here.
 
+## Responsible Use
+
+GhostlyShare is intended for lawful development, testing, demos and quick sharing of local apps from your own device.
+
+Do not use GhostlyShare for illegal content, malware, phishing, spam, copyright infringement, privacy violations, unauthorized access, or any other harmful or abusive activity.
+
+Public links can be reached by anyone who has the link. You are responsible for your local app, its content, access protection and legal use.
+
+See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
+
 ## Feature Overview
 
 - Auto-detect local web apps and APIs.
@@ -77,6 +87,7 @@ The full user guide is available in the [GhostlyShare Wiki](https://github.com/N
 
 Good starting points:
 
+- [Responsible Use](RESPONSIBLE_USE.md)
 - [Getting Started](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Getting-Started)
 - [Security and Privacy](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Security-and-Privacy)
 - [How App Detection Works](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Detection)
