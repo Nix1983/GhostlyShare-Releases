@@ -1,14 +1,17 @@
 # GhostlyShare
 
-[![Ubuntu .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Ubuntu%20%2F%20Debian%20.deb&logo=ubuntu&logoColor=white&color=e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
-[![Windows setup](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20setup%20ZIP&logo=windows&logoColor=white&color=0078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Ubuntu desktop .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Ubuntu%20%2F%20Debian%20desktop&logo=ubuntu&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Linux CLI .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Linux%20CLI%20.deb&logo=linux&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Windows setup](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20setup%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Windows CLI](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20CLI%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows Store](https://img.shields.io/badge/Windows-Microsoft%20Store-0078d4?logo=microsoftstore&logoColor=white)](https://apps.microsoft.com/detail/9PJ6DBC342GR)
 [![User Wiki](https://img.shields.io/badge/docs-user%20wiki-2ea44f)](https://github.com/Nix1983/GhostlyShare-Releases/wiki)
 [![License](https://img.shields.io/badge/license-proprietary-6f42c1)](#license)
 
-GhostlyShare is a desktop app for making local development apps public for a short time.
-Start a local web app, open GhostlyShare, choose the app, and share it through a public
-Cloudflare-powered URL.
+GhostlyShare is an app for making local development apps public for a short time.
+Use the desktop app for an interactive workflow, or use the `ghs` command-line tool
+for terminal, server, and script workflows. Both create temporary Cloudflare-powered
+public URLs for local apps.
 
 GhostlyShare is a private, proprietary application. This repository is only the public
 release, download, issue, support, and user documentation home for GhostlyShare. The
@@ -31,25 +34,53 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Use your own custom domain with your Cloudflare domain and API token.
 - Enable optional password protection per public link before sharing.
 - Copy or open public links from the app when you are ready to share.
+- Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
 ## Download
 
-| Platform | Download |
-|:--|:--|
-| Windows setup ZIP | [Download the latest setup ZIP](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) |
-| Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) |
-| Ubuntu / Debian Linux | [Download the latest `.deb` package](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) |
+| Package | Download | Installs |
+|:--|:--|:--|
+| Windows desktop setup ZIP | [GhostlyShareSetup_win-x64.zip](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareSetup_win-x64.zip) | Desktop app setup |
+| Windows CLI ZIP | [GhostlyShareCLI_win-x64.zip](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI_win-x64.zip) | Single-file `ghs.exe` |
+| Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) | Desktop app |
+| Ubuntu / Debian desktop `.deb` | [GhostlyShare-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb) | `ghostlyshare` desktop app |
+| Ubuntu / Debian CLI `.deb` | [GhostlyShareCLI-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb) | `ghs` command |
 
 ### Windows Download Note
 
-The Windows setup ZIP is provided for users who prefer a direct download outside
-the Microsoft Store. The ZIP contains the setup `.exe`. The executable is currently
-unsigned, so Windows may still show a SmartScreen warning when you run it.
+The Windows setup ZIP and Windows CLI ZIP are provided for users who prefer a direct
+download outside the Microsoft Store.
+
+The Windows CLI ZIP contains a single self-contained `ghs.exe`. Because it is a
+direct unsigned executable download, Windows may show a SmartScreen or Microsoft
+Defender warning when you run it. Only run it after verifying that you downloaded it
+from the official GhostlyShare release page.
 
 If you prefer a signed Microsoft install flow, use the Microsoft Store package
-instead. The Store/MSIX package is delivered through Microsoft and should avoid the
-unsigned direct-download warning.
+instead. The Store/MSIX package is delivered through Microsoft and avoids the
+unsigned direct-download warning for the desktop app.
+
+## Command Line Interface
+
+The `ghs` CLI is a power-user, server, and script tool. It is not a background daemon
+and does not replace the desktop app.
+
+Useful commands:
+
+```bash
+ghs --help
+ghs scan
+ghs share 5173
+ghs share http://localhost:3000
+ghs share 5173 --json
+ghs cloudflare status
+ghs doctor
+```
+
+`ghs share` keeps running while the public link is active. Press `Ctrl+C` to stop
+sharing. If you use a custom domain, GhostlyShare creates a temporary Cloudflare DNS
+record while sharing and removes it again when the command stops.
 
 ## Public Link Options
 
@@ -89,6 +120,7 @@ Good starting points:
 
 - [Responsible Use](RESPONSIBLE_USE.md)
 - [Getting Started](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Getting-Started)
+- [Command Line Interface](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Command-Line-Interface)
 - [Security and Privacy](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Security-and-Privacy)
 - [How App Detection Works](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Detection)
 - [Why Apps Are Merged](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Merging)
@@ -110,9 +142,9 @@ Use GitHub Issues to report bugs or request user-facing improvements:
 Please do not post Cloudflare API tokens, passwords, private URLs, or other secrets
 in public issues.
 
-## Ubuntu / Debian Install
+## Ubuntu / Debian Desktop Install
 
-Download the latest package:
+Download the latest desktop package:
 
 ```bash
 wget -O /tmp/GhostlyShare-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb
@@ -130,23 +162,48 @@ Start GhostlyShare from your application launcher, or run:
 ghostlyshare
 ```
 
+## Ubuntu / Debian CLI Install
+
+Download the latest CLI package:
+
+```bash
+wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb
+```
+
+Install it with dependencies:
+
+```bash
+sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
+```
+
+Run:
+
+```bash
+ghs --help
+```
+
 ## Update
 
-Download the newest `.deb` package from the latest release and install it over
-the existing version:
+Download the newest `.deb` package from the latest release and install it over the
+existing version. Desktop and CLI packages are separate, so update whichever package
+you use:
 
 ```bash
 wget -O /tmp/GhostlyShare-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb
 sudo apt install /tmp/GhostlyShare-linux-x64.deb
+
+wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb
+sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
 ```
 
 ## Uninstall
 
 ```bash
 sudo apt remove ghostlyshare
+sudo apt remove ghostlyshare-cli
 ```
 
-Uninstalling the package removes the installed Linux app, but local user data may remain
+Uninstalling a package removes that installed Linux package, but local user data may remain
 in your profile. See [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall)
 for notes about app data, logs, cached `cloudflared` files, and stored custom-domain
 tokens.
@@ -207,13 +264,19 @@ installations that you installed separately.
 
 ## Linux Notes
 
-The Ubuntu/Debian package installs:
+The Ubuntu/Debian desktop package installs:
 
 - The `ghostlyshare` command.
 - A desktop launcher.
 - The self-contained application under `/usr/lib/ghostlyshare`.
 - Required desktop dependencies such as `xdg-utils`, `libsecret-tools`, and core X11
   libraries.
+
+The Ubuntu/Debian CLI package installs:
+
+- The `ghs` command.
+- The self-contained CLI under `/usr/lib/ghostlyshare-cli`.
+- CLI-oriented dependencies such as `libsecret-tools` and `ca-certificates`.
 
 GhostlyShare downloads and verifies the matching `cloudflared` binary on first use.
 Custom-domain token storage uses the Linux desktop Secret Service through
