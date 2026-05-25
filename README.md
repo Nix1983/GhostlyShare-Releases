@@ -70,23 +70,42 @@ Useful commands:
 
 ```bash
 ghs --help
+ghs version
 ghs scan
+ghs scan --json
 ghs share 5173
 ghs share http://localhost:3000
 ghs share 5173 --json
+ghs share 5173 --url-only
+ghs share 5173 --password --password-attempts 5 --password-session-minutes 60
+ghs cloudflare login
 ghs cloudflare status
 ghs doctor
+ghs doctor --json
 ```
 
 `ghs share` keeps running while the public link is active. Press `Ctrl+C` to stop
 sharing. If you use a custom domain, GhostlyShare creates a temporary Cloudflare DNS
 record while sharing and removes it again when the command stops.
 
+The CLI has no background daemon and no separate `ghs stop` or `ghs list` command.
+The running `ghs share` process is the sharing session.
+
 ## Public Link Options
 
 - Random public links work without a GhostlyShare account, custom domain, or Cloudflare setup.
 - Custom domains require your own Cloudflare-managed domain and your own Cloudflare API token.
 - Optional password protection can be enabled before a selected app goes public.
+- Passwords must be 8 to 32 characters. By default, a visitor is locked for 5
+  minutes after 3 wrong password attempts from the same visitor.
+- A successful password login creates a temporary browser session. The default
+  password session is 30 minutes, and the CLI can set 5 to 1440 minutes with
+  `--password-session-minutes`.
+- GhostlyShare allows up to 3 public apps at the same time. This keeps tunnel
+  usage conservative and helps avoid Cloudflare quick-tunnel rate limits.
+- If Cloudflare returns a quick-tunnel rate limit, GhostlyShare waits before
+  trying random public links again. Consecutive cooldowns are 1 hour, then 3
+  hours, then up to 6 hours, and the cooldown is cleared after a successful start.
 - Password protection is useful for private demos, temporary reviews, and quick tests.
 - Password protection is not a replacement for careful sharing and basic security habits.
 - Never post tokens, secrets, passwords, private URLs, or sensitive logs in public issues.
@@ -126,6 +145,7 @@ Good starting points:
 - [Why Apps Are Merged](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Merging)
 - [Going Public and Link Readiness](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Going-Public)
 - [Password Protection](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Password-Protection)
+- [Rate Limits and Sessions](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Rate-Limits-and-Sessions)
 - [Custom Domains](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Custom-Domains)
 - [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall)
 - [Known Limitations](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Known-Limitations)
@@ -247,6 +267,9 @@ sensitive information in public issues.
 - Your computer must stay online.
 - VPNs, firewalls, proxies, DNS, and corporate networks can affect public links.
 - Cloudflare Quick Tunnel and custom-domain readiness can take a moment.
+- Random public links can be temporarily paused if Cloudflare rate-limits quick
+  tunnel creation.
+- At most 3 public apps can be active at the same time.
 - Password protection protects the public GhostlyShare link, but sensitive or internal
   services should still not be exposed.
 - Some system, infrastructure, and low-confidence ports are intentionally hidden.
