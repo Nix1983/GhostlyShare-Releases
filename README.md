@@ -33,6 +33,7 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Create random public links without an account, domain, or DNS setup.
 - Use your own custom domain with your Cloudflare domain and API token.
 - Enable optional password protection per public link before sharing.
+- Set an optional public-link lifetime so a link goes offline automatically.
 - Copy or open public links from the app when you are ready to share.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
@@ -77,6 +78,7 @@ ghs share 5173
 ghs share http://localhost:3000
 ghs share 5173 --json
 ghs share 5173 --url-only
+ghs share 5173 --expires-after 15m
 ghs share 5173 --password --password-attempts 5 --password-session-minutes 60
 ghs cloudflare login
 ghs cloudflare status
@@ -101,6 +103,12 @@ The running `ghs share` process is the sharing session.
 - A successful password login creates a temporary browser session. The default
   password session is 30 minutes, and the CLI can set 5 to 1440 minutes with
   `--password-session-minutes`.
+- Public links can have an optional lifetime. In the desktop app, choose a preset
+  such as 15 minutes, 30 minutes, 1 hour, 3 hours, 1 day, Today, or Custom before
+  going public. In the CLI, use `--expires-after <duration|today>`, for example
+  `--expires-after 15m`, `--expires-after 1h`, `--expires-after 1d4h15m`, or
+  `--expires-after today`. Custom durations must be between 1 minute and
+  40 days, 23 hours, 59 minutes.
 - GhostlyShare allows up to 3 public apps at the same time. This keeps tunnel
   usage conservative and helps avoid Cloudflare quick-tunnel rate limits.
 - If Cloudflare returns a quick-tunnel rate limit, GhostlyShare waits before
@@ -144,6 +152,7 @@ Good starting points:
 - [How App Detection Works](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Detection)
 - [Why Apps Are Merged](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Merging)
 - [Going Public and Link Readiness](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Going-Public)
+- [Link Lifetime](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Link-Lifetime)
 - [Password Protection](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Password-Protection)
 - [Rate Limits and Sessions](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Rate-Limits-and-Sessions)
 - [Custom Domains](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Custom-Domains)
@@ -270,6 +279,7 @@ sensitive information in public issues.
 - Random public links can be temporarily paused if Cloudflare rate-limits quick
   tunnel creation.
 - At most 3 public apps can be active at the same time.
+- Optional link lifetimes can be set up to 40 days, 23 hours, and 59 minutes.
 - Password protection protects the public GhostlyShare link, but sensitive or internal
   services should still not be exposed.
 - Some system, infrastructure, and low-confidence ports are intentionally hidden.
