@@ -32,13 +32,17 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Auto-detect local web apps and APIs.
 - Create random public links without an account, domain, or DNS setup.
 - Use your own custom domain with your Cloudflare domain and API token.
-- Enable optional password protection per public link before sharing.
-- Set an optional public-link lifetime so a link goes offline automatically.
+- Enable, change, or remove optional password protection before sharing or while a link is live.
+- Set or adjust an optional public-link lifetime so a link goes offline automatically.
 - Copy or open public links from the app when you are ready to share.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
 ## Download
+
+Desktop packages install the graphical GhostlyShare app. CLI packages install the
+terminal command `ghs`. They are separate packages, so you can install only the one
+you need, or install both.
 
 | Package | Download | Installs |
 |:--|:--|:--|
@@ -97,15 +101,20 @@ The running `ghs share` process is the sharing session.
 
 - Random public links work without a GhostlyShare account, custom domain, or Cloudflare setup.
 - Custom domains require your own Cloudflare-managed domain and your own Cloudflare API token.
-- Optional password protection can be enabled before a selected app goes public.
+- Optional password protection works for random links and custom domains.
+  In the desktop app, it can be enabled before sharing or enabled, changed, or
+  removed while the link is live.
+  Live changes apply immediately without restarting the tunnel. Existing visitor password
+  sessions are invalidated when the password settings change.
 - Passwords must be 8 to 32 characters. By default, a visitor is locked for 5
   minutes after 3 wrong password attempts from the same visitor.
 - A successful password login creates a temporary browser session. The default
   password session is 30 minutes, and the CLI can set 5 to 1440 minutes with
   `--password-session-minutes`.
-- Public links can have an optional lifetime. In the desktop app, choose a preset
-  such as 15 minutes, 30 minutes, 1 hour, 3 hours, 1 day, Today, or Custom before
-  going public. In the CLI, use `--expires-after <duration|today>`, for example
+- Public links can have an optional lifetime. In the desktop app, choose or change a
+  preset such as 15 minutes, 30 minutes, 1 hour, 3 hours, 1 day, Today, or Custom
+  before sharing or while the link is live. In the CLI, use
+  `--expires-after <duration|today>`, for example
   `--expires-after 15m`, `--expires-after 1h`, `--expires-after 1d4h15m`, or
   `--expires-after today`. Custom durations must be between 1 minute and
   40 days, 23 hours, 59 minutes.
@@ -171,7 +180,11 @@ Use GitHub Issues to report bugs or request user-facing improvements:
 Please do not post Cloudflare API tokens, passwords, private URLs, or other secrets
 in public issues.
 
-## Ubuntu / Debian Desktop Install
+## Linux Desktop App Install (Ubuntu / Debian)
+
+Use this package when you want the graphical GhostlyShare app, tray window, app
+detection, QR code view, password settings, link lifetime settings, and custom-domain
+setup screens.
 
 Download the latest desktop package:
 
@@ -191,7 +204,12 @@ Start GhostlyShare from your application launcher, or run:
 ghostlyshare
 ```
 
-## Ubuntu / Debian CLI Install
+This installs the `ghostlyshare` desktop command. It does not install the `ghs` CLI.
+
+## Linux CLI Install (Ubuntu / Debian)
+
+Use this package when you want the terminal command for scripts, servers, CI helpers,
+or SSH sessions. It does not install the graphical desktop app.
 
 Download the latest CLI package:
 
@@ -211,24 +229,39 @@ Run:
 ghs --help
 ```
 
+This installs the `ghs` command. If you also want the desktop app, install the
+desktop package separately.
+
 ## Update
 
 Download the newest `.deb` package from the latest release and install it over the
-existing version. Desktop and CLI packages are separate, so update whichever package
-you use:
+existing version.
+
+Update the Linux desktop app:
 
 ```bash
 wget -O /tmp/GhostlyShare-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb
 sudo apt install /tmp/GhostlyShare-linux-x64.deb
+```
 
+Update the Linux CLI:
+
+```bash
 wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb
 sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
 ```
 
 ## Uninstall
 
+Remove the Linux desktop app:
+
 ```bash
 sudo apt remove ghostlyshare
+```
+
+Remove the Linux CLI:
+
+```bash
 sudo apt remove ghostlyshare-cli
 ```
 
