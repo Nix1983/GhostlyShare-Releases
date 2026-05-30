@@ -17,6 +17,15 @@ GhostlyShare is a private, proprietary application. This repository is only the 
 release, download, issue, support, and user documentation home for GhostlyShare. The
 application source code is private and is not included here.
 
+## Quick Start
+
+1. Download and install GhostlyShare.
+2. Start your local app.
+3. Open GhostlyShare.
+4. Select the app and click `Go Public`.
+5. Copy the link or scan the QR code.
+6. Keep GhostlyShare and the local app running while the public link should work.
+
 ## Responsible Use
 
 GhostlyShare is intended for lawful development, testing, demos and quick sharing of local apps from your own device.
@@ -40,11 +49,17 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
+## Which Package Should I Choose?
+
+- Windows users should prefer the Microsoft Store for the easiest desktop install.
+- Windows ZIP downloads are for users who want a direct download outside the Store.
+- Ubuntu / Debian desktop `.deb` is for the graphical GhostlyShare app.
+- Ubuntu / Debian CLI `.deb` is only for terminal, server, and script workflows.
+- Desktop and CLI packages are separate and can be installed independently.
+
 ## Download
 
-Desktop packages install the graphical GhostlyShare app. CLI packages install the
-terminal command `ghs`. They are separate packages, so you can install only the one
-you need, or install both.
+Choose the package that matches the app or CLI workflow you want to install.
 
 | Package | Download | Installs |
 |:--|:--|:--|
@@ -104,10 +119,11 @@ The running `ghs share` process is the sharing session.
 
 ## Public Link Options
 
-- Random public links work without a GhostlyShare account, custom domain, or Cloudflare setup.
+- Random public links work without a GhostlyShare account, Cloudflare account,
+  custom domain, DNS setup, or API token.
 - Custom domains require your own Cloudflare-managed domain and your own Cloudflare API token.
-- Optional password protection works for random links and custom domains.
-  In the desktop app, it can be enabled before sharing or enabled, changed, or
+- Optional password protection and link lifetime work with random links and custom domains.
+- In the desktop app, password protection can be enabled before sharing or enabled, changed, or
   removed while the link is live.
   Live changes apply immediately without restarting the tunnel. Existing visitor password
   sessions are invalidated when the password settings change.
