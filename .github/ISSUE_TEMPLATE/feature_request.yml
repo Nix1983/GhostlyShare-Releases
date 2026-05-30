@@ -36,6 +36,8 @@ body:
         - Go Public / random URL
         - Custom domain
         - Password protection
+        - Traffic statistics
+        - Public link health / auto-stop
         - Cloudflare setup
         - Cleanup / uninstall
         - Tray icon or window behavior

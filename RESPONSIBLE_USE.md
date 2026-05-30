@@ -45,6 +45,10 @@ They are not intended as permanent production hosting.
 
 GhostlyShare does not provide uptime, availability or hosting guarantees.
 
+Public-link statistics, when shown, are simple local counters for the current
+sharing session. They are not full analytics, monitoring, access control, or a
+guarantee that a public link is safe to share.
+
 ## Cloudflare notice
 
 GhostlyShare may use Cloudflare tunneling technology and the local cloudflared binary to create public links.

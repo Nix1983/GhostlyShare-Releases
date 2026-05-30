@@ -35,6 +35,8 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Enable, change, or remove optional password protection before sharing or while a link is live.
 - Set or adjust an optional public-link lifetime so a link goes offline automatically.
 - Copy or open public links from the app when you are ready to share.
+- View simple live statistics for a public link, including requests, visitors, and active users.
+- Automatically return a public link to local-only mode if it becomes unreachable.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
@@ -94,6 +96,9 @@ ghs doctor --json
 sharing. If you use a custom domain, GhostlyShare creates a temporary Cloudflare DNS
 record while sharing and removes it again when the command stops.
 
+If a public link becomes unreachable while sharing is active, the CLI stops the
+sharing session cleanly and prints a short message before cleanup finishes.
+
 The CLI has no background daemon and no separate `ghs stop` or `ghs list` command.
 The running `ghs share` process is the sharing session.
 
@@ -120,6 +125,9 @@ The running `ghs share` process is the sharing session.
   40 days, 23 hours, 59 minutes.
 - GhostlyShare allows up to 3 public apps at the same time. This keeps tunnel
   usage conservative and helps avoid Cloudflare quick-tunnel rate limits.
+- GhostlyShare checks active public links and automatically stops sharing if a link
+  is no longer reachable. With Random mode, the next start usually creates a new
+  public URL. With Custom mode, GhostlyShare reconnects the same configured hostname.
 - If Cloudflare returns a quick-tunnel rate limit, GhostlyShare waits before
   trying random public links again. Consecutive cooldowns are 1 hour, then 3
   hours, then up to 6 hours, and the cooldown is cleared after a successful start.
@@ -161,6 +169,7 @@ Good starting points:
 - [How App Detection Works](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Detection)
 - [Why Apps Are Merged](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Merging)
 - [Going Public and Link Readiness](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Going-Public)
+- [Traffic Statistics](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Traffic-Statistics)
 - [Link Lifetime](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Link-Lifetime)
 - [Password Protection](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Password-Protection)
 - [Rate Limits and Sessions](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Rate-Limits-and-Sessions)
@@ -303,10 +312,15 @@ the GhostlyShare public link, but the local app should still be treated carefull
 Never post Cloudflare tokens, passwords, private URLs, full logs with secrets, or other
 sensitive information in public issues.
 
+Traffic statistics are simple local counters for the current public link session.
+They are meant as quick user feedback, not as full analytics or security auditing.
+
 ## Known Limitations
 
 - The selected local app must keep running while the public link should work.
 - Your computer must stay online.
+- Sleep, network changes, VPN changes, or interrupted connectivity can make an
+  existing public link unreachable. GhostlyShare may then stop the link automatically.
 - VPNs, firewalls, proxies, DNS, and corporate networks can affect public links.
 - Cloudflare Quick Tunnel and custom-domain readiness can take a moment.
 - Random public links can be temporarily paused if Cloudflare rate-limits quick
