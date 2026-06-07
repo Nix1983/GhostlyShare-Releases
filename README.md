@@ -51,6 +51,13 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
+## App Settings
+
+Open GhostlyShare and click the Settings button to change app preferences. Use
+`Window position` and select `Change` to choose where the tray window opens. You can
+choose top left, top right, bottom left, or bottom right, and adjust the distance from
+the screen edge.
+
 ## Which Package Should I Choose?
 
 - Windows users should prefer the Microsoft Store for the easiest desktop install.
@@ -72,8 +79,8 @@ Choose the package that matches the app or CLI workflow you want to install.
 | Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) | Desktop app |
 | Ubuntu / Debian desktop `.deb` | [GhostlyShare-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb) | `ghostlyshare` desktop app |
 | Ubuntu / Debian CLI `.deb` | [GhostlyShareCLI-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb) | `ghs` command |
-| Arch Linux desktop `.pkg.tar.zst` | [ghostlyshare-VERSION-1-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghostlyshare` desktop app |
-| Arch Linux CLI `.pkg.tar.zst` | [ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghs` command |
+| Arch Linux desktop `.pkg.tar.zst` | [ghostlyshare-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst) | `ghostlyshare` desktop app |
+| Arch Linux CLI `.pkg.tar.zst` | [ghostlyshare-cli-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst) | `ghs` command |
 
 ### Windows Download Note
 
@@ -269,12 +276,16 @@ Use this package when you want the graphical GhostlyShare app, tray window, app
 detection, QR code view, password settings, link lifetime settings, and custom-domain
 setup screens on Arch Linux.
 
-Download `ghostlyshare-VERSION-1-x86_64.pkg.tar.zst` from the
-[latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest),
-replace `VERSION` with the version in the downloaded filename, then install it with:
+Download the latest Arch Linux desktop package:
 
 ```bash
-sudo pacman -U ./ghostlyshare-VERSION-1-x86_64.pkg.tar.zst
+wget -O /tmp/ghostlyshare-x86_64.pkg.tar.zst https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst
+```
+
+Install it with:
+
+```bash
+sudo pacman -U /tmp/ghostlyshare-x86_64.pkg.tar.zst
 ```
 
 Start GhostlyShare from your application launcher, or run:
@@ -290,12 +301,16 @@ This installs the `ghostlyshare` desktop command. It does not install the `ghs` 
 Use this package when you want the terminal command for scripts, servers, CI helpers,
 or SSH sessions on Arch Linux. It does not install the graphical desktop app.
 
-Download `ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst` from the
-[latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest),
-replace `VERSION` with the version in the downloaded filename, then install it with:
+Download the latest Arch Linux CLI package:
 
 ```bash
-sudo pacman -U ./ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst
+wget -O /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst
+```
+
+Install it with:
+
+```bash
+sudo pacman -U /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst
 ```
 
 Run:
@@ -307,10 +322,10 @@ ghs --help
 This installs the `ghs` command. If you also want the desktop app, install the
 desktop package separately.
 
-## Tray Window Position in App Settings
+## Linux Tray Window Behavior
 
-If the tray window opens in an inconvenient place, open GhostlyShare App Settings and use
-`Window position` to choose the corner manually. You can choose top left, top right,
+If the tray window opens in an inconvenient place, open GhostlyShare App Settings,
+choose `Window position`, and select `Change`. You can choose top left, top right,
 bottom left, or bottom right, and adjust the distance from the screen edge.
 
 Linux desktops can handle tray windows, focus, and positioning differently. The Linux
@@ -348,13 +363,15 @@ sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
 Update the Arch Linux desktop app:
 
 ```bash
-sudo pacman -U ./ghostlyshare-VERSION-1-x86_64.pkg.tar.zst
+wget -O /tmp/ghostlyshare-x86_64.pkg.tar.zst https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst
+sudo pacman -U /tmp/ghostlyshare-x86_64.pkg.tar.zst
 ```
 
 Update the Arch Linux CLI:
 
 ```bash
-sudo pacman -U ./ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst
+wget -O /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst
+sudo pacman -U /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst
 ```
 
 ## Uninstall
