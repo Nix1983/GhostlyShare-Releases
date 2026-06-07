@@ -20,6 +20,9 @@ body:
       options:
         - Windows
         - Ubuntu / Debian Linux
+        - Arch Linux
+        - Kali Linux
+        - Other Linux desktop
         - Both Windows and Linux
         - Not sure
     validations:
@@ -99,7 +102,7 @@ body:
     id: linux_desktop
     attributes:
       label: Linux desktop details
-      description: Linux only. Paste the output of these commands if relevant.
+      description: Linux only. Paste the output of these commands if the issue is about tray, focus, window position, installation, or desktop behavior.
       render: shell
       placeholder: |
         echo $XDG_CURRENT_DESKTOP

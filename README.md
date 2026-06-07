@@ -2,6 +2,7 @@
 
 [![Ubuntu desktop .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Ubuntu%20%2F%20Debian%20desktop&logo=ubuntu&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Linux CLI .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Linux%20CLI%20.deb&logo=linux&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![Arch Linux packages](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Arch%20Linux%20packages&logo=archlinux&logoColor=white&color=%231793d1)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows setup](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20setup%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows CLI](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20CLI%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows Store](https://img.shields.io/badge/Windows-Microsoft%20Store-0078d4?logo=microsoftstore&logoColor=white)](https://apps.microsoft.com/detail/9PJ6DBC342GR)
@@ -55,6 +56,8 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Windows ZIP downloads are for users who want a direct download outside the Store.
 - Ubuntu / Debian desktop `.deb` is for the graphical GhostlyShare app.
 - Ubuntu / Debian CLI `.deb` is only for terminal, server, and script workflows.
+- Arch Linux desktop `.pkg.tar.zst` is for the graphical GhostlyShare app.
+- Arch Linux CLI `.pkg.tar.zst` is only for terminal, server, and script workflows.
 - Desktop and CLI packages are separate and can be installed independently.
 
 ## Download
@@ -68,6 +71,8 @@ Choose the package that matches the app or CLI workflow you want to install.
 | Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) | Desktop app |
 | Ubuntu / Debian desktop `.deb` | [GhostlyShare-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb) | `ghostlyshare` desktop app |
 | Ubuntu / Debian CLI `.deb` | [GhostlyShareCLI-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb) | `ghs` command |
+| Arch Linux desktop `.pkg.tar.zst` | [Latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghostlyshare` desktop app |
+| Arch Linux CLI `.pkg.tar.zst` | [Latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghs` command |
 
 ### Windows Download Note
 
@@ -257,10 +262,73 @@ ghs --help
 This installs the `ghs` command. If you also want the desktop app, install the
 desktop package separately.
 
+## Arch Linux Desktop App Install
+
+Use this package when you want the graphical GhostlyShare app, tray window, app
+detection, QR code view, password settings, link lifetime settings, and custom-domain
+setup screens on Arch Linux.
+
+Download `ghostlyshare-VERSION-1-x86_64.pkg.tar.zst` from the
+[latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest),
+replace `VERSION` with the version in the downloaded filename, then install it with:
+
+```bash
+sudo pacman -U ./ghostlyshare-VERSION-1-x86_64.pkg.tar.zst
+```
+
+Start GhostlyShare from your application launcher, or run:
+
+```bash
+ghostlyshare
+```
+
+This installs the `ghostlyshare` desktop command. It does not install the `ghs` CLI.
+
+## Arch Linux CLI Install
+
+Use this package when you want the terminal command for scripts, servers, CI helpers,
+or SSH sessions on Arch Linux. It does not install the graphical desktop app.
+
+Download `ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst` from the
+[latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest),
+replace `VERSION` with the version in the downloaded filename, then install it with:
+
+```bash
+sudo pacman -U ./ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst
+```
+
+Run:
+
+```bash
+ghs --help
+```
+
+This installs the `ghs` command. If you also want the desktop app, install the
+desktop package separately.
+
+## Linux Tray Window Position
+
+If the tray window opens in an inconvenient place, open GhostlyShare Settings and use
+`Window position` to choose the corner manually. You can choose top left, top right,
+bottom left, or bottom right, and adjust the distance from the screen edge.
+
+Linux desktops can handle tray windows, focus, and positioning differently. The Linux
+tray window behavior has been tested with:
+
+| System | Desktop | Session |
+|:--|:--|:--|
+| Arch Linux | KDE Plasma | Wayland |
+| Kali Linux | XFCE | X11 |
+| Ubuntu | GNOME | Wayland |
+
+Other Linux desktops and sessions may work too, but they are not explicitly tested.
+If the tray window, focus behavior, or window position does not work correctly on your
+desktop, please open a bug report and include your desktop/session details.
+
 ## Update
 
-Download the newest `.deb` package from the latest release and install it over the
-existing version.
+Download the newest package from the latest release and install it over the existing
+version.
 
 Update the Linux desktop app:
 
@@ -276,6 +344,18 @@ wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlySha
 sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
 ```
 
+Update the Arch Linux desktop app:
+
+```bash
+sudo pacman -U ./ghostlyshare-VERSION-1-x86_64.pkg.tar.zst
+```
+
+Update the Arch Linux CLI:
+
+```bash
+sudo pacman -U ./ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst
+```
+
 ## Uninstall
 
 Remove the Linux desktop app:
@@ -288,6 +368,18 @@ Remove the Linux CLI:
 
 ```bash
 sudo apt remove ghostlyshare-cli
+```
+
+Remove the Arch Linux desktop app:
+
+```bash
+sudo pacman -R ghostlyshare
+```
+
+Remove the Arch Linux CLI:
+
+```bash
+sudo pacman -R ghostlyshare-cli
 ```
 
 Uninstalling a package removes that installed Linux package, but local user data may remain
@@ -360,7 +452,7 @@ installations that you installed separately.
 
 ## Linux Notes
 
-The Ubuntu/Debian desktop package installs:
+The Ubuntu/Debian and Arch Linux desktop packages install:
 
 - The `ghostlyshare` command.
 - A desktop launcher.
@@ -368,7 +460,7 @@ The Ubuntu/Debian desktop package installs:
 - Required desktop dependencies such as `xdg-utils`, `libsecret-tools`, and core X11
   libraries.
 
-The Ubuntu/Debian CLI package installs:
+The Ubuntu/Debian and Arch Linux CLI packages install:
 
 - The `ghs` command.
 - The self-contained CLI under `/usr/lib/ghostlyshare-cli`.

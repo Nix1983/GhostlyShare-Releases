@@ -21,6 +21,9 @@ body:
       options:
         - Windows
         - Ubuntu / Debian Linux
+        - Arch Linux
+        - Kali Linux
+        - Other Linux desktop
         - Both Windows and Linux
         - Not platform-specific
         - Not sure
