@@ -47,6 +47,7 @@ See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
 - Copy or open public links from the app when you are ready to share.
 - View simple live statistics for a public link, including requests, visitors, and active users.
 - Automatically return a public link to local-only mode if it becomes unreachable.
+- Choose the tray window corner and screen-edge distance manually from App Settings.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 - See link readiness and offline states while your local app or tunnel changes.
 
@@ -71,8 +72,8 @@ Choose the package that matches the app or CLI workflow you want to install.
 | Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) | Desktop app |
 | Ubuntu / Debian desktop `.deb` | [GhostlyShare-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb) | `ghostlyshare` desktop app |
 | Ubuntu / Debian CLI `.deb` | [GhostlyShareCLI-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb) | `ghs` command |
-| Arch Linux desktop `.pkg.tar.zst` | [Latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghostlyshare` desktop app |
-| Arch Linux CLI `.pkg.tar.zst` | [Latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghs` command |
+| Arch Linux desktop `.pkg.tar.zst` | [ghostlyshare-VERSION-1-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghostlyshare` desktop app |
+| Arch Linux CLI `.pkg.tar.zst` | [ghostlyshare-cli-VERSION-1-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) | `ghs` command |
 
 ### Windows Download Note
 
@@ -306,9 +307,9 @@ ghs --help
 This installs the `ghs` command. If you also want the desktop app, install the
 desktop package separately.
 
-## Linux Tray Window Position
+## Tray Window Position in App Settings
 
-If the tray window opens in an inconvenient place, open GhostlyShare Settings and use
+If the tray window opens in an inconvenient place, open GhostlyShare App Settings and use
 `Window position` to choose the corner manually. You can choose top left, top right,
 bottom left, or bottom right, and adjust the distance from the screen edge.
 
