@@ -122,7 +122,6 @@ cd ~/Downloads/ghostlyshare
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb
 
-sudo apt remove ghostlyshare ghostlyshare-cli
 sudo apt install ./ghostlyshare-x86_64.deb ./ghostlyshare-cli-x86_64.deb
 
 ghostlyshare
@@ -153,7 +152,6 @@ wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/R
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm
 
-sudo dnf remove ghostlyshare ghostlyshare-cli
 sudo rpm --import RPM-GPG-KEY-GhostlyShare
 sudo dnf install ./ghostlyshare-x86_64.rpm ./ghostlyshare-cli-x86_64.rpm
 
@@ -185,7 +183,6 @@ wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/R
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm
 
-sudo zypper remove ghostlyshare ghostlyshare-cli
 sudo rpm --import RPM-GPG-KEY-GhostlyShare
 sudo zypper install ./ghostlyshare-x86_64.rpm ./ghostlyshare-cli-x86_64.rpm
 
@@ -217,7 +214,6 @@ wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/R
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm
 wget https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm
 
-sudo dnf remove ghostlyshare ghostlyshare-cli
 sudo rpm --import RPM-GPG-KEY-GhostlyShare
 sudo dnf install ./ghostlyshare-x86_64.rpm ./ghostlyshare-cli-x86_64.rpm
 
@@ -236,7 +232,6 @@ cd ~/Downloads/ghostlyshare
 curl -LO https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst
 curl -LO https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst
 
-sudo pacman -Rns ghostlyshare ghostlyshare-cli
 sudo pacman -U ./ghostlyshare-x86_64.pkg.tar.zst ./ghostlyshare-cli-x86_64.pkg.tar.zst
 
 ghostlyshare
@@ -465,54 +460,51 @@ sudo rpm --import RPM-GPG-KEY-GhostlyShare
 sudo zypper install ./ghostlyshare-x86_64.rpm ./ghostlyshare-cli-x86_64.rpm
 ```
 
-## Uninstall
+## Linux Remove / Uninstall
 
-Remove the Ubuntu / Debian desktop app:
+Use this section when you want to remove an existing GhostlyShare installation before
+a clean reinstall, or when you want to uninstall GhostlyShare completely.
+
+Remove the Ubuntu / Debian desktop app and CLI:
+
+```bash
+sudo apt remove ghostlyshare ghostlyshare-cli
+```
+
+Remove the Fedora, RHEL, Rocky Linux, or AlmaLinux desktop app and CLI:
+
+```bash
+sudo dnf remove ghostlyshare ghostlyshare-cli
+```
+
+Remove the openSUSE desktop app and CLI:
+
+```bash
+sudo zypper remove ghostlyshare ghostlyshare-cli
+```
+
+Remove the Arch Linux desktop app and CLI:
+
+```bash
+sudo pacman -Rns ghostlyshare ghostlyshare-cli
+```
+
+Remove only the desktop app:
 
 ```bash
 sudo apt remove ghostlyshare
-```
-
-Remove the Ubuntu / Debian CLI:
-
-```bash
-sudo apt remove ghostlyshare-cli
-```
-
-Remove the Arch Linux desktop app:
-
-```bash
+sudo dnf remove ghostlyshare
+sudo zypper remove ghostlyshare
 sudo pacman -R ghostlyshare
 ```
 
-Remove the Arch Linux CLI:
+Remove only the CLI:
 
 ```bash
-sudo pacman -R ghostlyshare-cli
-```
-
-Remove the RPM desktop app on Fedora, RHEL, Rocky Linux, or AlmaLinux:
-
-```bash
-sudo dnf remove ghostlyshare
-```
-
-Remove the RPM CLI on Fedora, RHEL, Rocky Linux, or AlmaLinux:
-
-```bash
+sudo apt remove ghostlyshare-cli
 sudo dnf remove ghostlyshare-cli
-```
-
-Remove the RPM desktop app on openSUSE:
-
-```bash
-sudo zypper remove ghostlyshare
-```
-
-Remove the RPM CLI on openSUSE:
-
-```bash
 sudo zypper remove ghostlyshare-cli
+sudo pacman -R ghostlyshare-cli
 ```
 
 Uninstalling a package removes that installed Linux package, but local user data may remain
