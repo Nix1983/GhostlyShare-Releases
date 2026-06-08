@@ -63,8 +63,8 @@ the screen edge.
 
 - Windows users should prefer the Microsoft Store for the easiest desktop install.
 - Windows ZIP downloads are for users who want a direct download outside the Store.
-- Ubuntu / Debian desktop `.deb` is for the graphical GhostlyShare app.
-- Ubuntu / Debian CLI `.deb` is only for terminal, server, and script workflows.
+- Ubuntu / Debian / Kali Linux desktop `.deb` is for the graphical GhostlyShare app.
+- Ubuntu / Debian / Kali Linux CLI `.deb` is only for terminal, server, and script workflows.
 - Arch Linux desktop `.pkg.tar.zst` is for the graphical GhostlyShare app.
 - Arch Linux CLI `.pkg.tar.zst` is only for terminal, server, and script workflows.
 - RPM desktop `.rpm` is for the graphical app on Fedora, openSUSE, RHEL, Rocky Linux, and AlmaLinux.
@@ -108,10 +108,10 @@ The desktop app and CLI are packaged separately. Install both when you want the 
 and the `ghs` terminal command on the same system.
 
 RPM-based distributions require the GhostlyShare RPM signing key before installing
-the RPM packages. Debian/Ubuntu `.deb` packages and Arch `.pkg.tar.zst` packages do
-not use this RPM key.
+the RPM packages. Ubuntu, Debian, Kali Linux, Linux Mint, Pop!_OS, and other
+Debian-based `.deb` packages do not use this RPM key.
 
-### Ubuntu / Debian
+### Ubuntu / Debian / Kali Linux / Linux Mint / Pop!_OS
 
 Install the desktop app and CLI:
 
@@ -408,7 +408,7 @@ ghostlyshare
 Download the newest package from the latest release and install it over the existing
 version. For RPM packages, import the RPM signing key before installing or updating.
 
-Update Ubuntu / Debian desktop and CLI:
+Update Ubuntu / Debian / Kali Linux / Linux Mint / Pop!_OS desktop and CLI:
 
 ```bash
 mkdir -p ~/Downloads/ghostlyshare
@@ -460,57 +460,9 @@ sudo rpm --import RPM-GPG-KEY-GhostlyShare
 sudo zypper install ./ghostlyshare-x86_64.rpm ./ghostlyshare-cli-x86_64.rpm
 ```
 
-## Linux Remove / Uninstall
+## Cleanup / Uninstall
 
-Use this section when you want to remove an existing GhostlyShare installation before
-a clean reinstall, or when you want to uninstall GhostlyShare completely.
-
-Remove the Ubuntu / Debian desktop app and CLI:
-
-```bash
-sudo apt remove ghostlyshare ghostlyshare-cli
-```
-
-Remove the Fedora, RHEL, Rocky Linux, or AlmaLinux desktop app and CLI:
-
-```bash
-sudo dnf remove ghostlyshare ghostlyshare-cli
-```
-
-Remove the openSUSE desktop app and CLI:
-
-```bash
-sudo zypper remove ghostlyshare ghostlyshare-cli
-```
-
-Remove the Arch Linux desktop app and CLI:
-
-```bash
-sudo pacman -Rns ghostlyshare ghostlyshare-cli
-```
-
-Remove only the desktop app:
-
-```bash
-sudo apt remove ghostlyshare
-sudo dnf remove ghostlyshare
-sudo zypper remove ghostlyshare
-sudo pacman -R ghostlyshare
-```
-
-Remove only the CLI:
-
-```bash
-sudo apt remove ghostlyshare-cli
-sudo dnf remove ghostlyshare-cli
-sudo zypper remove ghostlyshare-cli
-sudo pacman -R ghostlyshare-cli
-```
-
-Uninstalling a package removes that installed Linux package, but local user data may remain
-in your profile. See [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall)
-for notes about app data, logs, cached `cloudflared` files, and stored custom-domain
-tokens.
+For uninstall commands and cleanup notes, see the [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall) wiki page.
 
 ## What GhostlyShare Expects
 
@@ -564,16 +516,6 @@ They are meant as quick user feedback, not as full analytics or security auditin
   services should still not be exposed.
 - Some system, infrastructure, and low-confidence ports are intentionally hidden.
 - Linux app detection can differ from Windows because process and desktop metadata differ.
-
-## Cleanup / Uninstall Notes
-
-On Linux, removing the installed `ghostlyshare` or `ghostlyshare-cli` package does not
-guarantee that user settings, logs, cached Cloudflare tunnel files, saved custom-domain
-tokens, or other local app data are removed automatically.
-
-GhostlyShare manages its own downloaded `cloudflared` files, cache, settings, logs, and
-stored custom-domain token data. It does not remove system-wide `cloudflared`
-installations that you installed separately.
 
 ## Linux Notes
 
