@@ -3,6 +3,7 @@
 [![Ubuntu desktop .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Ubuntu%20%2F%20Debian%20desktop&logo=ubuntu&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Linux CLI .deb](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Linux%20CLI%20.deb&logo=linux&logoColor=white&color=%23e95420)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Arch Linux packages](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Arch%20Linux%20packages&logo=archlinux&logoColor=white&color=%231793d1)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
+[![RPM packages](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=RPM%20packages&logo=fedora&logoColor=white&color=%23294172)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows setup](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20setup%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows CLI](https://img.shields.io/github/v/release/Nix1983/GhostlyShare-Releases?label=Windows%20CLI%20ZIP&logo=windows&logoColor=white&color=%230078d4)](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest)
 [![Windows Store](https://img.shields.io/badge/Windows-Microsoft%20Store-0078d4?logo=microsoftstore&logoColor=white)](https://apps.microsoft.com/detail/9PJ6DBC342GR)
@@ -66,6 +67,8 @@ the screen edge.
 - Ubuntu / Debian CLI `.deb` is only for terminal, server, and script workflows.
 - Arch Linux desktop `.pkg.tar.zst` is for the graphical GhostlyShare app.
 - Arch Linux CLI `.pkg.tar.zst` is only for terminal, server, and script workflows.
+- RPM desktop `.rpm` is for the graphical app on Fedora, openSUSE, RHEL, Rocky Linux, and AlmaLinux.
+- RPM CLI `.rpm` is only for terminal, server, and script workflows on RPM-based distributions.
 - Desktop and CLI packages are separate and can be installed independently.
 
 ## Download
@@ -77,10 +80,12 @@ Choose the package that matches the app or CLI workflow you want to install.
 | Windows desktop setup ZIP | [GhostlyShareSetup_win-x64.zip](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareSetup_win-x64.zip) | Desktop app setup |
 | Windows CLI ZIP | [GhostlyShareCLI_win-x64.zip](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI_win-x64.zip) | Single-file `ghs.exe` |
 | Windows Microsoft Store | [Install from Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR) | Desktop app |
-| Ubuntu / Debian desktop `.deb` | [GhostlyShare-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb) | `ghostlyshare` desktop app |
-| Ubuntu / Debian CLI `.deb` | [GhostlyShareCLI-linux-x64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb) | `ghs` command |
+| Ubuntu / Debian desktop `.deb` | [ghostlyshare-x86_64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb) | `ghostlyshare` desktop app |
+| Ubuntu / Debian CLI `.deb` | [ghostlyshare-cli-x86_64.deb](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb) | `ghs` command |
 | Arch Linux desktop `.pkg.tar.zst` | [ghostlyshare-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst) | `ghostlyshare` desktop app |
 | Arch Linux CLI `.pkg.tar.zst` | [ghostlyshare-cli-x86_64.pkg.tar.zst](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst) | `ghs` command |
+| RPM desktop `.rpm` | [ghostlyshare-x86_64.rpm](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm) | `ghostlyshare` desktop app |
+| RPM CLI `.rpm` | [ghostlyshare-cli-x86_64.rpm](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm) | `ghs` command |
 
 ### Windows Download Note
 
@@ -176,7 +181,7 @@ show a checksum, no checksum file is currently published for that release.
 Linux example:
 
 ```bash
-sha256sum /tmp/GhostlyShare-linux-x64.deb
+sha256sum /tmp/ghostlyshare-x86_64.deb
 ```
 
 Windows example:
@@ -227,13 +232,13 @@ setup screens.
 Download the latest desktop package:
 
 ```bash
-wget -O /tmp/GhostlyShare-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb
+wget -O /tmp/ghostlyshare-x86_64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb
 ```
 
 Install it with dependencies:
 
 ```bash
-sudo apt install /tmp/GhostlyShare-linux-x64.deb
+sudo apt install /tmp/ghostlyshare-x86_64.deb
 ```
 
 Start GhostlyShare from your application launcher, or run:
@@ -252,13 +257,13 @@ or SSH sessions. It does not install the graphical desktop app.
 Download the latest CLI package:
 
 ```bash
-wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb
+wget -O /tmp/ghostlyshare-cli-x86_64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb
 ```
 
 Install it with dependencies:
 
 ```bash
-sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
+sudo apt install /tmp/ghostlyshare-cli-x86_64.deb
 ```
 
 Run:
@@ -322,6 +327,71 @@ ghs --help
 This installs the `ghs` command. If you also want the desktop app, install the
 desktop package separately.
 
+## RPM Desktop App Install (Fedora / openSUSE / RHEL)
+
+Use this package when you want the graphical GhostlyShare app, tray window, app
+detection, QR code view, password settings, link lifetime settings, and custom-domain
+setup screens on Fedora, openSUSE, RHEL, Rocky Linux, or AlmaLinux.
+
+Download the latest RPM desktop package:
+
+```bash
+wget -O /tmp/ghostlyshare-x86_64.rpm https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm
+```
+
+Install it on Fedora, RHEL, Rocky Linux, or AlmaLinux:
+
+```bash
+sudo dnf install /tmp/ghostlyshare-x86_64.rpm
+```
+
+Install it on openSUSE:
+
+```bash
+sudo zypper install /tmp/ghostlyshare-x86_64.rpm
+```
+
+Start GhostlyShare from your application launcher, or run:
+
+```bash
+ghostlyshare
+```
+
+This installs the `ghostlyshare` desktop command. It does not install the `ghs` CLI.
+
+## RPM CLI Install (Fedora / openSUSE / RHEL)
+
+Use this package when you want the terminal command for scripts, servers, CI helpers,
+or SSH sessions on Fedora, openSUSE, RHEL, Rocky Linux, or AlmaLinux. It does not
+install the graphical desktop app.
+
+Download the latest RPM CLI package:
+
+```bash
+wget -O /tmp/ghostlyshare-cli-x86_64.rpm https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm
+```
+
+Install it on Fedora, RHEL, Rocky Linux, or AlmaLinux:
+
+```bash
+sudo dnf install /tmp/ghostlyshare-cli-x86_64.rpm
+```
+
+Install it on openSUSE:
+
+```bash
+sudo zypper install /tmp/ghostlyshare-cli-x86_64.rpm
+```
+
+Run:
+
+```bash
+ghs --help
+```
+
+This installs the `ghs` command. If you also want the desktop app, install the
+desktop package separately.
+
 ## Linux Tray Window Behavior
 
 If the tray window opens in an inconvenient place, open GhostlyShare App Settings,
@@ -346,18 +416,18 @@ desktop, please open a bug report and include your desktop/session details.
 Download the newest package from the latest release and install it over the existing
 version.
 
-Update the Linux desktop app:
+Update the Ubuntu / Debian desktop app:
 
 ```bash
-wget -O /tmp/GhostlyShare-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShare-linux-x64.deb
-sudo apt install /tmp/GhostlyShare-linux-x64.deb
+wget -O /tmp/ghostlyshare-x86_64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb
+sudo apt install /tmp/ghostlyshare-x86_64.deb
 ```
 
-Update the Linux CLI:
+Update the Ubuntu / Debian CLI:
 
 ```bash
-wget -O /tmp/GhostlyShareCLI-linux-x64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI-linux-x64.deb
-sudo apt install /tmp/GhostlyShareCLI-linux-x64.deb
+wget -O /tmp/ghostlyshare-cli-x86_64.deb https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb
+sudo apt install /tmp/ghostlyshare-cli-x86_64.deb
 ```
 
 Update the Arch Linux desktop app:
@@ -374,15 +444,33 @@ wget -O /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst https://github.com/Nix1983/Ghos
 sudo pacman -U /tmp/ghostlyshare-cli-x86_64.pkg.tar.zst
 ```
 
+Update the RPM desktop app:
+
+```bash
+wget -O /tmp/ghostlyshare-x86_64.rpm https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm
+sudo dnf install /tmp/ghostlyshare-x86_64.rpm
+```
+
+On openSUSE, use `sudo zypper install /tmp/ghostlyshare-x86_64.rpm`.
+
+Update the RPM CLI:
+
+```bash
+wget -O /tmp/ghostlyshare-cli-x86_64.rpm https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm
+sudo dnf install /tmp/ghostlyshare-cli-x86_64.rpm
+```
+
+On openSUSE, use `sudo zypper install /tmp/ghostlyshare-cli-x86_64.rpm`.
+
 ## Uninstall
 
-Remove the Linux desktop app:
+Remove the Ubuntu / Debian desktop app:
 
 ```bash
 sudo apt remove ghostlyshare
 ```
 
-Remove the Linux CLI:
+Remove the Ubuntu / Debian CLI:
 
 ```bash
 sudo apt remove ghostlyshare-cli
@@ -399,6 +487,22 @@ Remove the Arch Linux CLI:
 ```bash
 sudo pacman -R ghostlyshare-cli
 ```
+
+Remove the RPM desktop app:
+
+```bash
+sudo dnf remove ghostlyshare
+```
+
+On openSUSE, use `sudo zypper remove ghostlyshare`.
+
+Remove the RPM CLI:
+
+```bash
+sudo dnf remove ghostlyshare-cli
+```
+
+On openSUSE, use `sudo zypper remove ghostlyshare-cli`.
 
 Uninstalling a package removes that installed Linux package, but local user data may remain
 in your profile. See [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall)
@@ -460,7 +564,7 @@ They are meant as quick user feedback, not as full analytics or security auditin
 
 ## Cleanup / Uninstall Notes
 
-On Linux, `sudo apt remove ghostlyshare` removes the installed app package. It does not
+On Linux, removing the installed `ghostlyshare` or `ghostlyshare-cli` package does not
 guarantee that user settings, logs, cached Cloudflare tunnel files, saved custom-domain
 tokens, or other local app data are removed automatically.
 
@@ -470,7 +574,7 @@ installations that you installed separately.
 
 ## Linux Notes
 
-The Ubuntu/Debian and Arch Linux desktop packages install:
+The Ubuntu/Debian, Arch Linux, and RPM desktop packages install:
 
 - The `ghostlyshare` command.
 - A desktop launcher.
@@ -478,7 +582,7 @@ The Ubuntu/Debian and Arch Linux desktop packages install:
 - Required desktop dependencies such as `xdg-utils`, `libsecret-tools`, and core X11
   libraries.
 
-The Ubuntu/Debian and Arch Linux CLI packages install:
+The Ubuntu/Debian, Arch Linux, and RPM CLI packages install:
 
 - The `ghs` command.
 - The self-contained CLI under `/usr/lib/ghostlyshare-cli`.
