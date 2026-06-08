@@ -10,14 +10,11 @@
 [![User Wiki](https://img.shields.io/badge/docs-user%20wiki-2ea44f)](https://github.com/Nix1983/GhostlyShare-Releases/wiki)
 [![License](https://img.shields.io/badge/license-proprietary-6f42c1)](#license)
 
-GhostlyShare is an app for making local development apps public for a short time.
-Use the desktop app for an interactive workflow, or use the `ghs` command-line tool
-for terminal, server, and script workflows. Both create temporary Cloudflare-powered
-public URLs for local apps.
+GhostlyShare makes local development apps public for a short time.
 
-GhostlyShare is a private, proprietary application. This repository is only the public
-release, download, issue, support, and user documentation home for GhostlyShare. The
-application source code is private and is not included here.
+Use the desktop app for an interactive workflow, or use the `ghs` command-line tool for terminal, server, and script workflows. Both create temporary Cloudflare-powered public URLs for local apps.
+
+GhostlyShare is a private, proprietary application. This repository is only the public release, download, issue, support, and user documentation home for GhostlyShare. The application source code is private and is not included here.
 
 ## Quick Start
 
@@ -28,57 +25,33 @@ application source code is private and is not included here.
 5. Copy the link or scan the QR code.
 6. Keep GhostlyShare and the local app running while the public link should work.
 
-## Responsible Use
+## Features
 
-GhostlyShare is intended for lawful development, testing, demos and quick sharing of local apps from your own device.
-
-Do not use GhostlyShare for illegal content, malware, phishing, spam, copyright infringement, privacy violations, unauthorized access, or any other harmful or abusive activity.
-
-Public links can be reached by anyone who has the link. You are responsible for your local app, its content, access protection and legal use.
-
-See [Responsible Use](RESPONSIBLE_USE.md) for the full policy.
-
-## Feature Overview
-
-- Auto-detect local web apps and APIs.
-- Create random public links without an account, domain, or DNS setup.
-- Use your own custom domain with your Cloudflare domain and API token.
-- Enable, change, or remove optional password protection before sharing or while a link is live.
-- Set or adjust an optional public-link lifetime so a link goes offline automatically.
-- Copy or open public links from the app when you are ready to share.
-- View simple live statistics for a public link, including requests, visitors, and active users.
-- Automatically return a public link to local-only mode if it becomes unreachable.
-- Choose the tray window corner and screen-edge distance manually from App Settings.
+- Auto-detect local web apps, APIs, dashboards, docs, and common development servers.
+- Create random public links without an account, domain, DNS setup, or API token.
+- Use your own Cloudflare-managed custom domain with your own API token.
+- Add optional password protection before sharing or while a link is live.
+- Set an optional public-link lifetime so temporary links can go offline automatically.
+- Copy links, open links, scan QR codes, and view simple live traffic statistics.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
-- See link readiness and offline states while your local app or tunnel changes.
 
-## App Settings
+## Downloads, Installation, Update and Uninstall
 
-Open GhostlyShare and click the Settings button to change app preferences. Use
-`Window position` and select `Change` to choose where the tray window opens. You can
-choose top left, top right, bottom left, or bottom right, and adjust the distance from
-the screen edge.
-
-## Downloads and Installation
-
-Use the [Installation wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation)
-to choose, verify, install, and update the right package for your system.
+Use the [Installation wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation) to choose, verify, install, and update the right package for your system.
 
 The installation guide covers:
 
 - Windows Microsoft Store, desktop setup ZIP, and CLI ZIP.
-- Ubuntu, Debian, Kali, Linux Mint, and Pop!_OS `.deb` packages.
+- Ubuntu, Debian, Kali, Linux Mint, Pop!_OS, and other `.deb` based systems.
 - Arch Linux `.pkg.tar.zst` packages.
-- Fedora, openSUSE, RHEL, Rocky Linux, and AlmaLinux RPM packages.
+- Fedora, openSUSE, RHEL, Rocky Linux, AlmaLinux, and other RPM based systems.
 - RPM signing key import, RPM signature checks, and SHA256 checksum verification.
 
-For uninstall commands and cleanup notes, see
-[Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall).
+For uninstall commands and cleanup notes, see [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall).
 
 ## Command Line Interface
 
-The `ghs` CLI is a power-user, server, and script tool. It is not a background daemon
-and does not replace the desktop app.
+The `ghs` CLI is a power-user, server, and script tool. It is not a background daemon and does not replace the desktop app.
 
 Useful commands:
 
@@ -99,55 +72,23 @@ ghs doctor
 ghs doctor --json
 ```
 
-`ghs share` keeps running while the public link is active. Press `Ctrl+C` to stop
-sharing. If you use a custom domain, GhostlyShare creates a temporary Cloudflare DNS
-record while sharing and removes it again when the command stops.
+`ghs share` keeps running while the public link is active. Press `Ctrl+C` to stop sharing. If you use a custom domain, GhostlyShare creates a temporary Cloudflare DNS record while sharing and removes it again when the command stops.
 
-If a public link becomes unreachable while sharing is active, the CLI stops the
-sharing session cleanly and prints a short message before cleanup finishes.
+The CLI has no background daemon and no separate `ghs stop` or `ghs list` command. The running `ghs share` process is the sharing session.
 
-The CLI has no background daemon and no separate `ghs stop` or `ghs list` command.
-The running `ghs share` process is the sharing session.
+See the [Command Line Interface wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Command-Line-Interface) for full CLI documentation.
 
-## Public Link Options
+## Important Usage and Security Notes
 
-- Random public links work without a GhostlyShare account, Cloudflare account,
-  custom domain, DNS setup, or API token.
-- Custom domains require your own Cloudflare-managed domain and your own Cloudflare API token.
-- Optional password protection and link lifetime work with random links and custom domains.
-- In the desktop app, password protection can be enabled before sharing or enabled, changed, or
-  removed while the link is live.
-  Live changes apply immediately without restarting the tunnel. Existing visitor password
-  sessions are invalidated when the password settings change.
-- Passwords must be 8 to 32 characters. By default, a visitor is locked for 5
-  minutes after 3 wrong password attempts from the same visitor.
-- A successful password login creates a temporary browser session. The default
-  password session is 30 minutes, and the CLI can set 5 to 1440 minutes with
-  `--password-session-minutes`.
-- Public links can have an optional lifetime. In the desktop app, choose or change a
-  preset such as 15 minutes, 30 minutes, 1 hour, 3 hours, 1 day, Today, or Custom
-  before sharing or while the link is live. In the CLI, use
-  `--expires-after <duration|today>`, for example
-  `--expires-after 15m`, `--expires-after 1h`, `--expires-after 1d4h15m`, or
-  `--expires-after today`. Custom durations must be between 1 minute and
-  40 days, 23 hours, 59 minutes.
-- GhostlyShare allows up to 3 public apps at the same time. This keeps tunnel
-  usage conservative and helps avoid Cloudflare quick-tunnel rate limits.
-- GhostlyShare checks active public links and automatically stops sharing if a link
-  is no longer reachable. With Random mode, the next start usually creates a new
-  public URL. With Custom mode, GhostlyShare reconnects the same configured hostname.
-- If Cloudflare returns a quick-tunnel rate limit, GhostlyShare waits before
-  trying random public links again. Consecutive cooldowns are 1 hour, then 3
-  hours, then up to 6 hours, and the cooldown is cleared after a successful start.
-- Password protection is useful for private demos, temporary reviews, and quick tests.
-- Password protection is not a replacement for careful sharing and basic security habits.
-- Never post tokens, secrets, passwords, private URLs, or sensitive logs in public issues.
+GhostlyShare is intended for lawful development, testing, demos, temporary reviews, and quick sharing of local apps from your own device.
 
-## Verify Downloads
+Public links expose the selected local app to the internet. Only share apps you own, trust, and are allowed to make public. Optional password protection protects the GhostlyShare public link, but sensitive or internal services should still not be exposed.
 
-Download GhostlyShare only from the Microsoft Store or the official latest GitHub
-release. See [Installation](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation)
-for SHA256 checksum examples and RPM signature verification.
+Do not use GhostlyShare for illegal content, malware, phishing, spam, copyright infringement, privacy violations, unauthorized access, or any other harmful or abusive activity.
+
+Never post Cloudflare tokens, passwords, private URLs, full logs with secrets, or other sensitive information in public issues.
+
+See [Responsible Use](RESPONSIBLE_USE.md) and [Security and Privacy](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Security-and-Privacy) for details.
 
 ## Documentation
 
@@ -155,22 +96,15 @@ The full user guide is available in the [GhostlyShare Wiki](https://github.com/N
 
 Good starting points:
 
-- [Responsible Use](RESPONSIBLE_USE.md)
 - [Installation](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation)
 - [Getting Started](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Getting-Started)
 - [Command Line Interface](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Command-Line-Interface)
 - [Security and Privacy](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Security-and-Privacy)
-- [How App Detection Works](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Detection)
-- [Why Apps Are Merged](https://github.com/Nix1983/GhostlyShare-Releases/wiki/App-Merging)
 - [Going Public and Link Readiness](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Going-Public)
-- [Traffic Statistics](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Traffic-Statistics)
-- [Link Lifetime](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Link-Lifetime)
 - [Password Protection](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Password-Protection)
-- [Rate Limits and Sessions](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Rate-Limits-and-Sessions)
+- [Link Lifetime](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Link-Lifetime)
+- [Traffic Statistics](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Traffic-Statistics)
 - [Custom Domains](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Custom-Domains)
-- [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall)
-- [Known Limitations](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Known-Limitations)
-- [Windows and Linux Differences](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Windows-and-Linux)
 - [Troubleshooting](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Troubleshooting)
 
 ## Bugs and Feature Requests
@@ -180,109 +114,21 @@ Use GitHub Issues to report bugs or request user-facing improvements:
 - [Report a bug](https://github.com/Nix1983/GhostlyShare-Releases/issues/new?template=bug_report.yml)
 - [Request a feature](https://github.com/Nix1983/GhostlyShare-Releases/issues/new?template=feature_request.yml)
 
-Please do not post Cloudflare API tokens, passwords, private URLs, or other secrets
-in public issues.
-
-## Linux Tray Window Behavior
-
-If the tray window opens in an inconvenient place, open GhostlyShare App Settings,
-choose `Window position`, and select `Change`. You can choose top left, top right,
-bottom left, or bottom right, and adjust the distance from the screen edge.
-
-Linux desktops can handle tray windows, focus, and positioning differently. The Linux
-tray window behavior has been tested with:
-
-| System | Desktop | Session |
-|:--|:--|:--|
-| Arch Linux | KDE Plasma | Wayland |
-| Kali Linux | XFCE | X11 |
-| Ubuntu | GNOME | Wayland |
-
-Other Linux desktops and sessions may work too, but they are not explicitly tested.
-If the tray window, focus behavior, or window position does not work correctly on your
-desktop, please open a bug report and include your desktop/session details.
-
-Useful Linux GUI details for bug reports:
-
-```bash
-cat /etc/os-release
-uname -a
-echo "$XDG_CURRENT_DESKTOP"
-echo "$DESKTOP_SESSION"
-echo "$XDG_SESSION_TYPE"
-loginctl show-session "$XDG_SESSION_ID" -p Type -p Desktop -p Name
-ghostlyshare
-```
-
-## Update
-
-See the [Installation wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation)
-for update commands. Updates use the same package files as fresh installs.
-
-## Cleanup / Uninstall
-
-For uninstall commands and cleanup notes, see the [Cleanup and Uninstall](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Cleanup-and-Uninstall) wiki page.
-
-## What GhostlyShare Expects
-
-GhostlyShare is designed for local development apps: web servers, APIs, dashboards,
-frontend dev servers, local docs, and similar tools that listen on localhost or all
-local interfaces.
-
-The most reliable apps are:
-
-- HTTP or HTTPS apps on ports above `1024`.
-- Apps started by common development runtimes such as `dotnet`, `node`, `python`,
-  `python3`, versioned Python commands like `python3.12`, `vite`, `npm`, `php`,
-  `ruby`, `rails`, `java`, `uvicorn`, `streamlit`, and similar tools.
-- HTML apps with a meaningful `<title>`.
-- APIs with JSON, OpenAPI, Swagger, FastAPI, or similar API signals.
-- Framework apps such as Vite, React, Vue, Angular, Next.js, Blazor, ASP.NET Core,
-  IIS Express, and other common local development stacks.
-
-Apps may be hidden when they look like system services, infrastructure, printers,
-VPN services, Docker proxy helpers, or generic HTTP endpoints without enough evidence
-that they are user-facing development apps.
-
-## Security and Privacy Basics
-
-Public links expose the selected local app to the internet. Only share apps you own,
-trust, and are allowed to make public.
-
-Do not expose private admin panels, company systems, database tools, operating system
-services, or anything that should stay internal. Optional password protection protects
-the GhostlyShare public link, but the local app should still be treated carefully.
-
-Never post Cloudflare tokens, passwords, private URLs, full logs with secrets, or other
-sensitive information in public issues.
-
-Traffic statistics are simple local counters for the current public link session.
-They are meant as quick user feedback, not as full analytics or security auditing.
+Please do not post Cloudflare API tokens, passwords, private URLs, or other secrets in public issues.
 
 ## Known Limitations
 
 - The selected local app must keep running while the public link should work.
 - Your computer must stay online.
-- Sleep, network changes, VPN changes, or interrupted connectivity can make an
-  existing public link unreachable. GhostlyShare may then stop the link automatically.
-- VPNs, firewalls, proxies, DNS, and corporate networks can affect public links.
+- Sleep, network changes, VPN changes, or interrupted connectivity can make an existing public link unreachable.
 - Cloudflare Quick Tunnel and custom-domain readiness can take a moment.
-- Random public links can be temporarily paused if Cloudflare rate-limits quick
-  tunnel creation.
+- Random public links can be temporarily paused if Cloudflare rate-limits quick tunnel creation.
 - At most 3 public apps can be active at the same time.
 - Optional link lifetimes can be set up to 40 days, 23 hours, and 59 minutes.
-- Password protection protects the public GhostlyShare link, but sensitive or internal
-  services should still not be exposed.
-- Some system, infrastructure, and low-confidence ports are intentionally hidden.
-- Linux app detection can differ from Windows because process and desktop metadata differ.
+- Linux desktop behavior can differ between GNOME, KDE Plasma, XFCE, Wayland, and X11.
 
-## Linux Notes
-
-Linux package details, dependencies, RPM signing, and checksum verification are
-documented on the [Installation wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation).
+See [Known Limitations](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Known-Limitations), [Windows and Linux Differences](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Windows-and-Linux), and [Troubleshooting](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Troubleshooting) for details.
 
 ## License
 
-GhostlyShare is proprietary software by Ghostly Inc. This release repository is not
-an open-source source-code repository, and no open-source license is granted for the
-application source or binaries unless a separate license agreement says otherwise.
+GhostlyShare is proprietary software by Ghostly Inc. This release repository is not an open-source source-code repository, and no open-source license is granted for the application source or binaries unless a separate license agreement says otherwise.
