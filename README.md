@@ -35,6 +35,10 @@ GhostlyShare is a private, proprietary application. This repository is only the 
 - Copy links, open links, scan QR codes, and view simple live traffic statistics.
 - Use `ghs` from a terminal for scan, share, Cloudflare, doctor, and JSON workflows.
 
+## Release Notes
+
+See the [release notes](RELEASE-NOTES.md) for user-facing changes, including upcoming fixes.
+
 ## Downloads, Installation, Update and Uninstall
 
 Use the [Installation wiki page](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Installation) to choose, verify, install, and update the right package for your system.
