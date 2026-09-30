@@ -37,7 +37,7 @@ GhostlyShare is a private, proprietary application. This repository is only the 
 
 ## Release Notes
 
-See the [release notes](RELEASE-NOTES.md) for user-facing changes, including upcoming fixes.
+See the [release notes](RELEASE-NOTES.md) for user-facing changes and fixes.
 
 ## Downloads, Installation, Update and Uninstall
 
