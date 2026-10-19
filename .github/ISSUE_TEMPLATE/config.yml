@@ -1,8 +1,11 @@
 blank_issues_enabled: false
 contact_links:
   - name: Read the GhostlyShare user guide
-    url: https://github.com/Nix1983/GhostlyShare-Releases/wiki
-    about: Start here for installation, app detection, custom domains, and troubleshooting.
+    url: https://github.com/Nix1983/GhostlyShare-Releases/blob/main/wiki/Home.md
+    about: Installation, LAN sharing, public links, app detection, CLI, security, and troubleshooting.
+  - name: Visit the GhostlyShare website
+    url: https://ghostlyinc.com/en-us/tools/ghostly-share/
+    about: Product overview, supported workflows, downloads, and documentation links.
   - name: Download the latest release
     url: https://github.com/Nix1983/GhostlyShare-Releases/releases/latest
-    about: Make sure you are using the newest available GhostlyShare release.
+    about: Check that you are using the newest available GhostlyShare version.

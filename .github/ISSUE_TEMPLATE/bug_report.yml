@@ -10,7 +10,20 @@ body:
       value: |
         Thanks for reporting a GhostlyShare issue.
 
-        Before submitting, please check the [Troubleshooting guide](https://github.com/Nix1983/GhostlyShare-Releases/wiki/Troubleshooting). Do not paste Cloudflare API tokens, passwords, private URLs, or other secrets.
+        Check the [Troubleshooting guide](https://github.com/Nix1983/GhostlyShare-Releases/blob/main/wiki/Troubleshooting.md) first. Never paste Cloudflare API tokens, passwords, private URLs, customer data, or unredacted logs.
+
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Desktop app
+        - ghs CLI
+        - Both
+        - Documentation or downloads
+        - Not sure
+    validations:
+      required: true
 
   - type: dropdown
     id: platform
@@ -19,11 +32,13 @@ body:
       description: Where did the problem happen?
       options:
         - Windows
-        - Ubuntu / Debian Linux
+        - Windows with WSL
+        - Ubuntu / Debian / Linux Mint / Kali / Pop!_OS
         - Arch Linux
-        - Kali Linux
+        - Fedora / openSUSE / RHEL-compatible Linux
         - Other Linux desktop
-        - Both Windows and Linux
+        - Docker workload
+        - More than one platform
         - Not sure
     validations:
       required: true
@@ -32,8 +47,8 @@ body:
     id: version
     attributes:
       label: GhostlyShare version
-      description: Use the version shown in GhostlyShare or the release you installed.
-      placeholder: "Example: 1.1.4.0"
+      description: Use the version shown in GhostlyShare or by `ghs version`.
+      placeholder: "Example: 1.3.0.0"
     validations:
       required: true
 
@@ -43,16 +58,20 @@ body:
       label: What is affected?
       options:
         - App detection
+        - Discovery diagnostics
+        - LAN sharing
         - Go Public / random URL
         - Custom domain
         - Password protection
+        - Link lifetime
         - Traffic statistics
+        - Browser opening
+        - CLI or JSON output
         - Public link health / auto-stop
         - Cloudflare token storage
-        - Cloudflare process cleanup
-        - Cleanup / uninstall
+        - Tunnel or DNS cleanup
         - Tray icon or window behavior
-        - Installation or update
+        - Installation, update, or uninstall
         - Documentation
         - Something else
     validations:
@@ -70,7 +89,7 @@ body:
     id: actual
     attributes:
       label: Actual behavior
-      description: What happened instead? Include exact error messages if you saw any.
+      description: What happened instead? Include the exact safe error message.
     validations:
       required: true
 
@@ -78,10 +97,10 @@ body:
     id: reproduce
     attributes:
       label: Steps to reproduce
-      description: List the smallest set of steps that reproduce the issue.
+      description: List the smallest set of steps that reproduces the issue.
       placeholder: |
         1. Start my local app with ...
-        2. Open GhostlyShare
+        2. Open GhostlyShare or run ...
         3. Select ...
         4. See ...
     validations:
@@ -91,18 +110,31 @@ body:
     id: local_app
     attributes:
       label: Local app details
-      description: If this is about app detection or sharing, describe the local app.
+      description: Complete this when app detection or sharing is involved.
       placeholder: |
         Local URL: http://localhost:3000
-        Framework/runtime: Vite, ASP.NET Core, python3 -m http.server, etc.
-        HTML title or API type:
-        Does it open locally in a browser?
+        Framework/runtime: Vite, ASP.NET Core, Node, Docker, WSL, etc.
+        Host environment: Windows, Linux, WSL, or Docker
+        Does the URL open locally in a browser?
+        Discovery diagnostic reason:
+
+  - type: textarea
+    id: network
+    attributes:
+      label: Network details
+      description: Complete this for LAN, public-link readiness, DNS, proxy, or VPN problems. Do not post private addresses unless needed and safe.
+      placeholder: |
+        LAN or public sharing:
+        Wi-Fi / Ethernet:
+        VPN or proxy:
+        Same subnet or guest Wi-Fi:
+        Output of `ghs doctor` after removing sensitive values:
 
   - type: textarea
     id: linux_desktop
     attributes:
       label: Linux desktop details
-      description: Linux only. Paste the output of these commands if the issue is about tray, focus, window position, installation, or desktop behavior.
+      description: Linux only. Include this for tray, focus, window, or desktop integration problems.
       render: shell
       placeholder: |
         echo $XDG_CURRENT_DESKTOP
@@ -113,14 +145,14 @@ body:
     id: extra
     attributes:
       label: Additional context
-      description: Add screenshots, logs, or notes. Please remove secrets before posting.
+      description: Add screenshots, safe logs, or notes after removing secrets.
 
   - type: checkboxes
     id: checklist
     attributes:
       label: Before submitting
       options:
-        - label: I checked the Troubleshooting guide.
+        - label: I checked the Troubleshooting guide and the latest release.
           required: true
-        - label: I removed tokens, passwords, private URLs, and other secrets from this report.
+        - label: I removed tokens, passwords, private URLs, customer data, and other secrets.
           required: true
