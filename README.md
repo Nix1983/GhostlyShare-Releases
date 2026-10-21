@@ -36,14 +36,11 @@ LAN and Public can both be active for the same app.
 
 ## Downloads
 
-| Platform | Desktop app | CLI |
-| --- | --- | --- |
-| Windows | Microsoft Store or `GhostlyShareSetup_win-x64.zip` | `GhostlyShareCLI_win-x64.zip` |
-| Ubuntu / Debian | `ghostlyshare-x86_64.deb` | `ghostlyshare-cli-x86_64.deb` |
-| Arch Linux | `ghostlyshare-x86_64.pkg.tar.zst` | `ghostlyshare-cli-x86_64.pkg.tar.zst` |
-| Fedora / openSUSE / RHEL-compatible | `ghostlyshare-x86_64.rpm` | `ghostlyshare-cli-x86_64.rpm` |
+- **Windows:** install the desktop app from the [Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR), or download it directly from GitHub.
+- **Linux:** packages are available for Ubuntu/Debian, Arch Linux, Fedora, openSUSE, and other RPM-based distributions.
+- **Command line:** the optional `ghs` CLI is available separately for Windows and Linux.
 
-See [Installation](wiki/Installation.md) for install and update instructions. See [Release Notes](RELEASE-NOTES.md) for what changed.
+[Download the latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) · [Installation guide](wiki/Installation.md) · [Release notes](RELEASE-NOTES.md)
 
 ## What GhostlyShare Includes
 
