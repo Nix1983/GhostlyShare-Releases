@@ -48,7 +48,7 @@ body:
     attributes:
       label: GhostlyShare version
       description: Use the version shown in GhostlyShare or by `ghs version`.
-      placeholder: "Example: 1.3.0.0"
+      placeholder: "Example: 1.3.1.0"
     validations:
       required: true
 

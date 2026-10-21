@@ -1,5 +1,11 @@
 # Troubleshooting
 
+Start with these three checks:
+
+1. Make sure the local app still opens directly in your browser.
+2. Keep GhostlyShare and the local app running.
+3. Open **Settings → Discovery diagnostics → Open** for a clear reason when an app is missing.
+
 ## A Local App Is Missing
 
 1. Open the local URL in a browser.
@@ -12,7 +18,7 @@
 ghs scan --diagnostics
 ```
 
-Look for a clear reason such as not HTTP, weak app signal, blocked by safety policy, timeout, failed redirect target, or scan timeout.
+Look for a reason such as not a web app, not enough information to identify it, blocked for safety, timed out, or unavailable.
 
 Ports `80` and `443` are supported. Docker and WSL apps still need a host-accessible local endpoint.
 
@@ -77,6 +83,16 @@ Open **Settings → Browser** and choose **Default**, Firefox, Chrome, or Edge.
 Linux desktop behavior can vary between GNOME, KDE Plasma, XFCE, Wayland, and X11.
 
 Start GhostlyShare from a terminal to see immediate launch errors. Make sure the desktop package matches the distribution and that a system tray implementation is available.
+
+## Current Limits
+
+- GhostlyShare is designed for temporary development sharing, not permanent hosting.
+- The local app, GhostlyShare, and the computer must remain running.
+- LAN links do not have GhostlyShare password protection.
+- Up to three apps can be public at the same time.
+- There is currently no macOS package.
+
+See [Known Limitations](Known-Limitations.md) for the complete list.
 
 ## Reporting a Bug
 

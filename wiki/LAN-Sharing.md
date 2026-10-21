@@ -13,10 +13,11 @@ Typical uses:
 
 1. Start the local app.
 2. Find it in GhostlyShare.
-3. Turn on **Share on local network**.
-4. Copy the LAN URL or open the QR code.
-5. Open the link from a device on the same network.
-6. Turn the switch off when finished.
+3. Select **LAN** at the bottom of its card.
+4. Switch **LAN On**.
+5. Copy the LAN URL or open the QR code.
+6. Open the link from a device on the same network.
+7. Switch **LAN Off** when finished.
 
 LAN and public sharing are independent. You can use either one or both for the same app.
 

@@ -1,8 +1,8 @@
 # App Detection and Diagnostics
 
-GhostlyShare looks for local TCP listeners and safely checks whether they are shareable HTTP or HTTPS apps.
+GhostlyShare checks apps running on your computer and shows the ones that can be opened in a browser or shared safely.
 
-It can recognize common development websites, API documentation, OpenAPI or Swagger surfaces, health pages, dashboards, static sites, redirects, and many framework development servers.
+It can recognize development websites, APIs, Swagger pages, dashboards, static sites, redirects, and many common development servers.
 
 ## Supported Local Environments
 
@@ -17,13 +17,12 @@ The app card can show the detected execution environment next to the port.
 
 GhostlyShare scans local endpoints. It does not scan other computers on your LAN.
 
-## Ports and Addresses
+## What GhostlyShare Checks
 
 - Common development ports are supported.
 - Standard web ports `80` and `443` are supported.
-- IPv4 and IPv6 endpoints are checked separately.
-- Equivalent endpoints are combined only when GhostlyShare can safely identify them as the same app.
-- If several different local apps use the same port through different local addresses, the CLI can accept the exact URL.
+- Apps available through IPv4 and IPv6 are combined when GhostlyShare can confirm that they are the same app.
+- If several different apps use the same port, CLI users can select one with its exact local URL.
 
 Example:
 
@@ -43,7 +42,7 @@ Open:
 
 **Settings → Discovery diagnostics → Open**
 
-The diagnostics window shows apps and inspected endpoints, including entries that were:
+The diagnostics window shows detected apps and anything GhostlyShare checked but did not display. It gives a short reason such as:
 
 - Detected and shown.
 - Hidden because the app signal was too weak.
@@ -52,7 +51,7 @@ The diagnostics window shows apps and inspected endpoints, including entries tha
 - Timed out.
 - Failed because the endpoint was not HTTP or could not be reached.
 
-Diagnostic records are intentionally limited. Response bodies, response headers, full URLs, and process details are not retained by this feature.
+Diagnostics intentionally avoid storing page contents, headers, full URLs, and process details.
 
 ## CLI Diagnostics
 

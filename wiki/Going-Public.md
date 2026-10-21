@@ -1,4 +1,4 @@
-# Going Public
+# Public Sharing
 
 Public sharing creates a temporary internet URL that forwards traffic to a verified local app.
 
@@ -7,10 +7,11 @@ Public sharing creates a temporary internet URL that forwards traffic to a verif
 A random link is the fastest option:
 
 1. Start the local app.
-2. Select **Go Public**.
-3. Wait for the public URL to become live.
-4. Copy the URL or show its QR code.
-5. Select **Stop** when finished.
+2. Select **Public** at the bottom of its card.
+3. Keep **Random** selected and choose **Go Public**.
+4. Wait until the status shows **Live**.
+5. Copy the URL or show its QR code.
+6. Choose **Stop** when finished.
 
 Random links do not require a GhostlyShare account, your own domain, DNS setup, or a Cloudflare API token.
 
@@ -34,16 +35,17 @@ ghs cloudflare login
 ghs share 5173 --custom demo.example.com
 ```
 
-## Optional Protection
+## Password, Expiration, and Activity
 
-Public links can use:
+Public links can include:
 
 - A visitor password.
 - A failed-attempt limit and temporary lockout.
 - An expiring visitor session.
 - An automatic link lifetime.
+- Simple live traffic counters for the current sharing session.
 
-See [Password Protection](Password-Protection.md) and [Link Lifetime](Link-Lifetime.md).
+See [Password Protection](Password-Protection.md), [Link Lifetime](Link-Lifetime.md), and [Traffic Statistics](Traffic-Statistics.md).
 
 ## Link Readiness
 
@@ -57,7 +59,7 @@ When sharing stops, GhostlyShare closes the public route. For a custom domain, i
 
 GhostlyShare records enough local session state to clean up interrupted managed sessions when it starts again.
 
-## Important Limits
+## Good to Know
 
 - Keep GhostlyShare, the local app, and the computer online.
 - Up to three public apps can be active at the same time.
@@ -65,4 +67,4 @@ GhostlyShare records enough local session state to clean up interrupted managed 
 - Random URLs are temporary and should not be treated as stable production addresses.
 - Public sharing is intended for development, testing, demos, and short reviews.
 
-See [Rate Limits and Sessions](Rate-Limits-and-Sessions.md), [Security and Privacy](Security-and-Privacy.md), and [Troubleshooting](Troubleshooting.md).
+More details are available under [Rate Limits and Sessions](Rate-Limits-and-Sessions.md), [Security and Privacy](Security-and-Privacy.md), and [Troubleshooting](Troubleshooting.md).

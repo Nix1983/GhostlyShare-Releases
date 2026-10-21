@@ -1,5 +1,21 @@
 # Release Notes
 
+## 1.3.1.0 — October 21, 2026
+
+### Refreshed design
+
+- Added the new GhostlyShare icon across the desktop app, taskbar, tray, and Linux packages.
+- Simplified the app cards and made the **Public** and **LAN** sections easier to distinguish.
+- Improved status placement, active markers, empty states, and first-start feedback.
+- Redesigned the About page and added easier access to documentation, feedback, ratings, and project support.
+
+### More reliable app detection
+
+- Improved detection when the same protected app is available through both IPv4 and IPv6.
+- Prevented duplicate entries for these endpoints while keeping genuinely different apps separate.
+- Made one-time CLI scans more reliable on busy computers.
+- An incomplete CLI scan now reports a clear error instead of returning a partial app list as a successful result.
+
 ## 1.3.0.0 — October 19, 2026
 
 ### Local network sharing
