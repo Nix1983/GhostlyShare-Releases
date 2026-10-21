@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest an improvement or new GhostlyShare behavior.
+description: Suggest a user-facing GhostlyShare improvement.
 title: "[Feature]: "
 labels:
   - enhancement
@@ -8,23 +8,36 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting an improvement.
+        Explain the user problem, the preferred workflow, and why the current behavior is not enough.
 
-        Feature requests are most useful when they explain the user problem, the workflow, and why the current behavior is not enough.
-        Do not paste Cloudflare API tokens, passwords, private URLs, logs with secrets, or other sensitive information.
+        Do not paste Cloudflare API tokens, passwords, private URLs, customer data, or logs containing secrets.
+
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - Desktop app
+        - ghs CLI
+        - Both
+        - Documentation or downloads
+        - Not product-specific
+    validations:
+      required: true
 
   - type: dropdown
     id: platform
     attributes:
       label: Platform
-      description: Which platform would benefit from this?
       options:
         - Windows
+        - Windows with WSL
         - Ubuntu / Debian Linux
         - Arch Linux
-        - Kali Linux
+        - Fedora / openSUSE / RHEL-compatible Linux
         - Other Linux desktop
-        - Both Windows and Linux
+        - Docker workload
+        - All platforms
         - Not platform-specific
         - Not sure
     validations:
@@ -36,15 +49,18 @@ body:
       label: Area
       options:
         - App detection
+        - Discovery diagnostics
+        - LAN sharing
         - Go Public / random URL
         - Custom domain
         - Password protection
+        - Link lifetime
         - Traffic statistics
-        - Public link health / auto-stop
-        - Cloudflare setup
-        - Cleanup / uninstall
+        - Browser opening
+        - CLI or JSON output
+        - Cloudflare setup or cleanup
         - Tray icon or window behavior
-        - Installation or updates
+        - Installation, update, or uninstall
         - Documentation
         - Other
     validations:
@@ -54,7 +70,7 @@ body:
     id: problem
     attributes:
       label: Problem or workflow
-      description: What are you trying to do, and what makes it awkward today?
+      description: What are you trying to do, and what makes it difficult today?
     validations:
       required: true
 
@@ -62,28 +78,34 @@ body:
     id: proposal
     attributes:
       label: Suggested behavior
-      description: Describe what you would like GhostlyShare to do.
+      description: Describe the simplest behavior that would solve the problem.
     validations:
       required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example
+      description: Show a short desktop or CLI example when useful.
 
   - type: textarea
     id: alternatives
     attributes:
       label: Alternatives tried
-      description: What workaround do you use today, if any?
+      description: What workaround do you use today?
 
   - type: textarea
     id: context
     attributes:
       label: Additional context
-      description: Add examples or links if they help explain the request. Please remove secrets before posting.
+      description: Add examples or links after removing sensitive information.
 
   - type: checkboxes
     id: checklist
     attributes:
       label: Before submitting
       options:
-        - label: This is a user-facing request, not a request for source code or private implementation details.
+        - label: This is a user-facing request, not a request for private source code or implementation details.
           required: true
-        - label: I removed tokens, passwords, private URLs, and other secrets from this request.
+        - label: I removed tokens, passwords, private URLs, customer data, and other secrets.
           required: true

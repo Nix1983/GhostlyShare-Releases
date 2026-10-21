@@ -1,86 +1,63 @@
 # GhostlyShare Responsible Use
 
-GhostlyShare helps you make local apps, APIs and development services reachable through a public link.
+GhostlyShare helps you share local apps, APIs, and development services over a trusted local network or through a temporary public link.
 
-GhostlyShare is intended for lawful development, testing, demos, webhook testing and quick sharing from your own local device.
+GhostlyShare is intended for lawful development, testing, demonstrations, webhook testing, device checks, and short reviews of services you own or are authorized to share.
 
-## Allowed use
+## Allowed Use
 
 You may use GhostlyShare to:
 
-- Share your own local development apps.
-- Test webhooks.
-- Demo local apps to clients, friends or teammates.
-- Temporarily access your own local tools.
-- Share APIs, dashboards or web apps you own or are allowed to expose.
+- Test your own local websites and APIs from another device.
+- Demonstrate a local app to clients, friends, or teammates.
+- Test webhooks and external integrations.
+- Share development dashboards, documentation, or previews you own.
+- Temporarily access your own local tools when you understand the exposure.
 
-## Prohibited use
+## Prohibited Use
 
 You may not use GhostlyShare for:
 
 - Illegal content or illegal activity.
-- Malware, phishing, credential theft or scams.
-- Spam, abuse or automated harmful traffic.
-- Copyright infringement or pirated content.
-- Doxxing, privacy violations or sharing personal data without permission.
-- Harassment, hate, extremist or violent content.
-- Sexual exploitation or any illegal sexual content.
-- Unauthorized access, hacking targets or exposing systems you do not own or control.
-- Hosting third-party content without permission.
-- Sharing stolen data, leaked credentials or confidential information.
+- Malware, phishing, credential theft, scams, or harmful automation.
+- Spam, abuse, harassment, or privacy violations.
+- Copyright infringement or distribution of stolen content.
+- Unauthorized access, attacks, or exposure of systems you do not own or control.
+- Sharing leaked credentials, stolen data, confidential information, or personal data without permission.
+- Bypassing laws, platform policies, network restrictions, or abuse-prevention systems.
 
-## Public link warning
+## LAN Links
 
-Public links can be reached by anyone who has the link.
+A LAN link can be opened by devices on the selected local network. It has no built-in GhostlyShare password protection.
 
-GhostlyShare does not automatically verify whether your local app is safe, private or legally allowed to be shared.
+Use LAN sharing only on a trusted network. Guest Wi-Fi, shared office networks, hotels, schools, and public hotspots should be treated as untrusted. Stop LAN sharing when the device test is finished.
 
-You are responsible for your local app, its content, access protection and legal use.
+## Public Links
 
-## Development and temporary sharing
+A public link can be reached by anyone who obtains the URL. Random URLs are difficult to guess, but they are not private access control.
 
-Random public URLs are intended for development, testing, demos and temporary sharing.
+Password protection can reduce accidental access. It is not a full authentication system, a security audit, or a guarantee that the local app is safe to expose.
 
-They are not intended as permanent production hosting.
+## Temporary Development Sharing
 
-GhostlyShare does not provide uptime, availability or hosting guarantees.
+Random URLs and custom-domain sessions are intended for temporary development and review workflows. They are not permanent production hosting and do not include uptime or availability guarantees.
 
-Public-link statistics, when shown, are simple local counters for the current
-sharing session. They are not full analytics, monitoring, access control, or a
-guarantee that a public link is safe to share.
+Traffic statistics are simple local counters for the current session. They are not full analytics, monitoring, access control, or proof that a link is safe.
 
-## Cloudflare notice
+## Cloudflare Notice
 
-GhostlyShare may use Cloudflare tunneling technology and the local cloudflared binary to create public links.
+Public links may use Cloudflare tunneling technology and a local `cloudflared` process.
 
-Your use of public links may also be subject to Cloudflare's applicable terms, policies and abuse rules.
-
-GhostlyShare is not affiliated with Cloudflare unless explicitly stated.
-
-Do not use GhostlyShare or cloudflared to bypass laws, platform policies, network restrictions or abuse-prevention systems.
+Your use of public links may also be subject to Cloudflare's applicable terms, policies, rate limits, and abuse rules. GhostlyShare is not affiliated with Cloudflare unless explicitly stated.
 
 ## Security
 
-Do not expose private dashboards, admin panels, secrets, databases, internal systems or sensitive services unless you fully understand the risk and have protected them properly.
+Do not expose private admin panels, databases, secret stores, internal infrastructure, customer data, or sensitive services unless they have suitable authentication and you fully understand the risk.
 
-Password protection can help reduce accidental access, but it is not a full security audit or guarantee.
+Never publish Cloudflare API tokens, passwords, private URLs, customer data, or complete logs containing secrets.
 
-## User responsibility
+## User Responsibility
 
-You are responsible for everything you choose to expose through GhostlyShare.
+You are responsible for every service and item of content you choose to share. You must have permission to expose it and must comply with applicable law and third-party terms.
 
-You must only share content and services you own or are authorized to share.
-
-## Abuse
-
-If GhostlyShare is used in a harmful or abusive way, access to features may be changed, limited or removed where technically possible.
-
-## Disclaimer
-
-GhostlyShare is provided as a developer tool.
-
-It is provided without warranties.
-
-Use it at your own risk.
-
-By using GhostlyShare, you agree to use it only for lawful, authorized development, testing and sharing.
+GhostlyShare is provided as a developer tool without warranties. Use it at your own risk.
