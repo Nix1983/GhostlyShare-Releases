@@ -31,6 +31,6 @@ GhostlyShare helps you open a local web app on another device or share it tempor
 - [Report a Bug or Request a Feature](Reporting-Bugs-and-Feature-Requests.md)
 - [Known Limitations](Known-Limitations.md)
 - [Cleanup and Uninstall](Cleanup-and-Uninstall.md)
-- [Responsible Use](../RESPONSIBLE_USE.md)
+- [Responsible Use](https://github.com/Nix1983/GhostlyShare-Releases/blob/main/RESPONSIBLE_USE.md)
 
-For downloads, current release notes, and feedback, return to the [main page](../README.md).
+For downloads, current release notes, and feedback, return to the [GhostlyShare release repository](https://github.com/Nix1983/GhostlyShare-Releases).

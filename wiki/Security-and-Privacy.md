@@ -50,4 +50,4 @@ Do not share:
 - Internal infrastructure you are not authorized to expose.
 - Any service you do not own or have permission to share.
 
-Read [Responsible Use](../RESPONSIBLE_USE.md) for prohibited uses.
+Read [Responsible Use](https://github.com/Nix1983/GhostlyShare-Releases/blob/main/RESPONSIBLE_USE.md) for prohibited uses.

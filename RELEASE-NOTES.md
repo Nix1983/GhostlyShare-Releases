@@ -12,12 +12,6 @@ These notes summarize changes that affect people using the published GhostlyShar
 - Native minimize behavior remains available on Linux.
 - Tray and launcher recovery remain supported on KDE Plasma, XFCE, MATE, Wayland, and X11 where the desktop provides the relevant behavior.
 
-### Tested upgrades
-
-- The Windows, Debian/Ubuntu, Fedora/RPM, Arch Linux, CLI, discovery, LAN, public-link, WSL, Docker, IPv6, and custom-domain paths were exercised for this release.
-- Updating the Linux package keeps desktop and CLI installations compatible.
-- A separately installed system `cloudflared` remains untouched; GhostlyShare uses its own managed helper.
-
 ## 1.3.7.0 — October 27, 2026
 
 ### Clearer LAN behavior in virtual machines
