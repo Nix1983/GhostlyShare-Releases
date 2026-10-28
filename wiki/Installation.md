@@ -1,20 +1,36 @@
-# Installation and Updates
+# Installation, Updates, and Removal
 
 Download GhostlyShare only from the [latest GitHub release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) or the official [Microsoft Store listing](https://apps.microsoft.com/detail/9PJ6DBC342GR).
 
-The current public packages support x64 Windows and x86_64 Linux. They are self-contained, so you do not need to install .NET separately.
+The public packages support x64 Windows and x86_64 Linux. They include everything required to run GhostlyShare; a separate .NET installation is not needed.
 
 ## Choose Your Download
 
 | Your system | Desktop app | Optional CLI |
 | --- | --- | --- |
-| Windows | Microsoft Store or `GhostlyShareSetup_win-x64.zip` | `GhostlyShareCLI_win-x64.zip` |
-| Ubuntu, Debian, Mint, Kali, Pop!_OS | `ghostlyshare-x86_64.deb` | `ghostlyshare-cli-x86_64.deb` |
-| Arch Linux | `ghostlyshare-x86_64.pkg.tar.zst` | `ghostlyshare-cli-x86_64.pkg.tar.zst` |
-| Fedora, RHEL, Rocky, AlmaLinux | `ghostlyshare-x86_64.rpm` | `ghostlyshare-cli-x86_64.rpm` |
-| openSUSE | `ghostlyshare-x86_64.rpm` | `ghostlyshare-cli-x86_64.rpm` |
+| Windows | Microsoft Store or [`GhostlyShareSetup_win-x64.zip`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareSetup_win-x64.zip) | [`GhostlyShareCLI_win-x64.zip`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI_win-x64.zip) |
+| Ubuntu, Debian, Mint, Kali, Pop!_OS | [`ghostlyshare-x86_64.deb`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb) | [`ghostlyshare-cli-x86_64.deb`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb) |
+| Arch Linux | [`ghostlyshare-x86_64.pkg.tar.zst`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst) | [`ghostlyshare-cli-x86_64.pkg.tar.zst`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst) |
+| Fedora, RHEL, Rocky, AlmaLinux | [`ghostlyshare-x86_64.rpm`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm) | [`ghostlyshare-cli-x86_64.rpm`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm) |
+| openSUSE | [`ghostlyshare-x86_64.rpm`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm) | [`ghostlyshare-cli-x86_64.rpm`](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm) |
 
-Install the desktop app for the visual interface. Install the CLI package only when you want the `ghs` command. Both can be installed together.
+Install the desktop app for the visual interface. Install the CLI only when you want the `ghs` command. Desktop and CLI can be installed together.
+
+Use one Windows desktop installation method—Microsoft Store or direct setup—not both.
+
+Every download link and command on this page uses GitHub's `latest` address and therefore follows the newest published release. If `curl` is unavailable on Linux, use the download links in the table and run the installation command from the download folder.
+
+## Updating an Existing Installation
+
+You normally do not need to uninstall the old version.
+
+1. Stop active LAN and public shares.
+2. End running `ghs lan` and `ghs share` commands with `Ctrl+C`.
+3. Fully quit the GhostlyShare desktop app.
+4. Download and install the latest package using the same method as before.
+5. Start GhostlyShare and check **About**, or run `ghs version`.
+
+Settings and the saved Cloudflare token normally remain in place. A separately installed system `cloudflared` is neither required nor removed by a GhostlyShare update.
 
 ## Windows Desktop
 
@@ -26,94 +42,187 @@ The Store is the simplest signed installation and update path. A new Store versi
 2. Select **Install**.
 3. Start GhostlyShare from the Start menu.
 
-### Direct Setup
+Updates are installed through Microsoft Store updates.
 
-1. Download `GhostlyShareSetup_win-x64.zip` from the latest release.
-2. Extract the ZIP before running anything inside it.
-3. Run the versioned setup program inside it, for example `GhostlyShareSetup_1.3.8.0_win-x64.exe` in the current release.
-4. Follow the setup wizard, then start GhostlyShare from the Start menu.
+To remove the Store version, open Windows **Settings → Apps → Installed apps**, find GhostlyShare, and select **Uninstall**.
 
-Windows can show a SmartScreen or publisher warning for the direct GitHub package. Confirm that the file came from the official release repository. Use the Microsoft Store version if you prefer the signed Store installation flow.
+### Direct GitHub Setup
+
+Download the latest setup ZIP in a browser using the table above, or run this in PowerShell:
+
+```powershell
+Invoke-WebRequest `
+  -Uri "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareSetup_win-x64.zip" `
+  -OutFile "GhostlyShareSetup_win-x64.zip"
+```
+
+Then:
+
+1. Extract `GhostlyShareSetup_win-x64.zip`.
+2. Run the only setup program inside it. Its filename includes the release version: `GhostlyShareSetup_<version>_win-x64.exe`.
+3. Follow the setup wizard.
+4. Start GhostlyShare from the Start menu.
+
+Windows can show a SmartScreen or publisher warning for a direct GitHub download. Confirm that the file came from the official release repository before continuing.
+
+To update, download the latest ZIP again and run the newer setup program. Do not uninstall the existing version first.
+
+To remove the direct setup version, open Windows **Settings → Apps → Installed apps**, find GhostlyShare, and select **Uninstall**.
 
 ## Windows CLI
 
-1. Download `GhostlyShareCLI_win-x64.zip`.
-2. Extract it to a permanent folder.
-3. Open PowerShell in that folder and run:
+Download and extract the latest portable CLI with PowerShell:
 
 ```powershell
-.\ghs.exe version
-.\ghs.exe --help
+Invoke-WebRequest `
+  -Uri "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/GhostlyShareCLI_win-x64.zip" `
+  -OutFile "GhostlyShareCLI_win-x64.zip"
+
+Expand-Archive `
+  -LiteralPath ".\GhostlyShareCLI_win-x64.zip" `
+  -DestinationPath ".\GhostlyShareCLI" `
+  -Force
+
+.\GhostlyShareCLI\ghs.exe version
 ```
 
-Optionally add that folder to your user `PATH` so `ghs` works from any terminal. The CLI is portable and does not install a background service.
+Move the extracted `GhostlyShareCLI` folder to a permanent location if required. You can add that folder to your user `PATH` so `ghs` works from any terminal.
+
+To update:
+
+1. Stop every running `ghs` command.
+2. Download the latest ZIP again.
+3. Extract it over the existing CLI folder with `-Force`.
+4. Run `ghs version` or `.\GhostlyShareCLI\ghs.exe version`.
+
+To remove the CLI, delete its extracted folder and remove that folder from `PATH` if you added it. The CLI does not install a background service.
 
 ## Ubuntu, Debian, Mint, Kali, Pop!_OS
 
-Download the required `.deb` file or files, open a terminal in the download folder, and install them with `apt`:
+Open a terminal in the folder where you want to save the packages. For example, use `cd ~/Downloads`.
+
+Download and install the desktop app:
 
 ```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.deb" -o ghostlyshare-x86_64.deb
 sudo apt install ./ghostlyshare-x86_64.deb
-sudo apt install ./ghostlyshare-cli-x86_64.deb
 ```
 
-Start the desktop app from the application menu or run `ghostlyshare`. Verify the optional CLI with `ghs version`.
+Optionally download and install the CLI:
+
+```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.deb" -o ghostlyshare-cli-x86_64.deb
+sudo apt install ./ghostlyshare-cli-x86_64.deb
+ghs version
+```
+
+To update, fully quit GhostlyShare and repeat the download and `apt install` commands. The package manager upgrades the existing installation.
+
+Remove the desktop app and/or CLI with:
+
+```bash
+sudo apt remove ghostlyshare
+sudo apt remove ghostlyshare-cli
+```
 
 ## Arch Linux
 
-Download the required package or packages and run:
+Download and install the desktop app:
 
 ```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.pkg.tar.zst" -o ghostlyshare-x86_64.pkg.tar.zst
 sudo pacman -U ./ghostlyshare-x86_64.pkg.tar.zst
-sudo pacman -U ./ghostlyshare-cli-x86_64.pkg.tar.zst
 ```
 
-Start the desktop app from the application menu or run `ghostlyshare`. Verify the optional CLI with `ghs version`.
+Optionally download and install the CLI:
+
+```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.pkg.tar.zst" -o ghostlyshare-cli-x86_64.pkg.tar.zst
+sudo pacman -U ./ghostlyshare-cli-x86_64.pkg.tar.zst
+ghs version
+```
+
+To update, fully quit GhostlyShare and repeat the download and `pacman -U` commands.
+
+Remove the desktop app and/or CLI with:
+
+```bash
+sudo pacman -R ghostlyshare
+sudo pacman -R ghostlyshare-cli
+```
 
 ## Fedora, RHEL, Rocky Linux, AlmaLinux
 
-Download the RPM package or packages and `RPM-GPG-KEY-GhostlyShare` into the same folder. Import the release signing key once:
+Download the signing key and import it once:
 
 ```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/RPM-GPG-KEY-GhostlyShare" -o RPM-GPG-KEY-GhostlyShare
 sudo rpm --import ./RPM-GPG-KEY-GhostlyShare
 ```
 
-Then install the desktop app, the CLI, or both:
+Download and install the desktop app:
 
 ```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm" -o ghostlyshare-x86_64.rpm
 sudo dnf install ./ghostlyshare-x86_64.rpm
-sudo dnf install ./ghostlyshare-cli-x86_64.rpm
 ```
 
-Start the desktop app from the application menu or run `ghostlyshare`. Verify the optional CLI with `ghs version`.
+Optionally download and install the CLI:
+
+```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm" -o ghostlyshare-cli-x86_64.rpm
+sudo dnf install ./ghostlyshare-cli-x86_64.rpm
+ghs version
+```
+
+To update, fully quit GhostlyShare and repeat the package download and `dnf install` commands.
+
+Remove the desktop app and/or CLI with:
+
+```bash
+sudo dnf remove ghostlyshare
+sudo dnf remove ghostlyshare-cli
+```
 
 ## openSUSE
 
-Download the RPM package or packages and the release key into the same folder, then run:
+Download the signing key and import it once:
 
 ```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/RPM-GPG-KEY-GhostlyShare" -o RPM-GPG-KEY-GhostlyShare
 sudo rpm --import ./RPM-GPG-KEY-GhostlyShare
-sudo zypper install ./ghostlyshare-x86_64.rpm
-sudo zypper install ./ghostlyshare-cli-x86_64.rpm
 ```
 
-Start the desktop app from the application menu or run `ghostlyshare`. Verify the optional CLI with `ghs version`.
+Download and install the desktop app:
 
-## Updating an Existing Installation
+```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-x86_64.rpm" -o ghostlyshare-x86_64.rpm
+sudo zypper install ./ghostlyshare-x86_64.rpm
+```
 
-You normally do not need to uninstall the old version.
+Optionally download and install the CLI:
 
-1. Stop active LAN and public shares, then fully quit GhostlyShare and running `ghs` commands.
-2. Download the new package for the same installation method.
-3. Install it with the same setup or package-manager command used above.
-4. Start GhostlyShare and check **About**, or run `ghs version`.
+```bash
+curl -fL "https://github.com/Nix1983/GhostlyShare-Releases/releases/latest/download/ghostlyshare-cli-x86_64.rpm" -o ghostlyshare-cli-x86_64.rpm
+sudo zypper install ./ghostlyshare-cli-x86_64.rpm
+ghs version
+```
 
-- **Microsoft Store:** let the Store update the app.
-- **Windows setup:** run the newer extracted setup program.
-- **Linux:** install the newer package over the existing package.
-- **Windows CLI ZIP:** replace all files in the old extracted CLI folder.
+To update, fully quit GhostlyShare and repeat the package download and `zypper install` commands.
 
-Settings and the saved Cloudflare token normally remain in place. GhostlyShare manages and updates its own public-sharing helper. A separately installed system `cloudflared` is neither required nor removed by a GhostlyShare update.
+Remove the desktop app and/or CLI with:
+
+```bash
+sudo zypper remove ghostlyshare
+sudo zypper remove ghostlyshare-cli
+```
+
+## Verify the Installation
+
+- Start the desktop app from the normal application launcher.
+- Open **About** and check the displayed version.
+- If the CLI is installed, run `ghs version` and `ghs --help`.
+- Continue with [Getting Started](Getting-Started.md) for a first LAN or public share.
 
 ## Verify a Download
 
@@ -122,7 +231,7 @@ GitHub records a SHA-256 digest for every release asset. Calculate the local dig
 Windows PowerShell:
 
 ```powershell
-Get-FileHash .\GhostlyShareSetup_win-x64.zip -Algorithm SHA256
+Get-FileHash ".\GhostlyShareSetup_win-x64.zip" -Algorithm SHA256
 ```
 
 Linux:
@@ -133,4 +242,4 @@ sha256sum ghostlyshare-x86_64.deb
 
 For RPM packages, importing `RPM-GPG-KEY-GhostlyShare` lets the package manager verify the release signature during installation.
 
-See [Getting Started](Getting-Started.md) for the first test or [Cleanup and Uninstall](Cleanup-and-Uninstall.md) to remove GhostlyShare.
+Package removal normally keeps preferences and support data. See [Cleanup and Uninstall](Cleanup-and-Uninstall.md) when you also want to remove the saved token or optional local data.
