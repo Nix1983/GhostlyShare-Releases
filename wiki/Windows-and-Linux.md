@@ -1,21 +1,18 @@
 # Windows and Linux
 
-GhostlyShare provides the desktop app and `ghs` CLI for Windows and x86_64 Linux.
+GhostlyShare provides a desktop app and the optional `ghs` CLI for x64 Windows and x86_64 Linux.
 
-## Feature Availability
+## Available on Both Platforms
 
-| Feature | Windows | Linux |
-| --- | --- | --- |
-| Desktop app | Yes | Yes |
-| `ghs` CLI | Yes | Yes |
-| LAN sharing | Yes | Yes |
-| Random public links | Yes | Yes |
-| Custom Cloudflare domains | Yes | Yes |
-| Password and lifetime settings | Yes | Yes |
-| Discovery diagnostics | Yes | Yes |
-| Docker workload detection | Yes | Yes, when host-accessible |
-| WSL workload detection | Yes | Not applicable |
-| System-default browser option | Yes | Yes |
+- Automatic local app discovery and diagnostics.
+- LAN sharing with optional password and expiry.
+- Random public links and Cloudflare custom domains.
+- Public password protection and expiry.
+- QR codes and simple LAN/Public activity counters.
+- Windows-default, Firefox, Chrome, and Edge browser choices where installed.
+- Docker discovery when the container exposes a host-accessible local endpoint.
+
+Windows can also discover supported WSL web apps. WSL is not applicable on a Linux host.
 
 ## Packages
 
@@ -33,21 +30,25 @@ Linux:
 
 Desktop and CLI packages can be installed together. They are self-contained and do not require a separate .NET runtime.
 
+## Linux Desktop Behavior
+
+Linux desktops do not all provide the same tray support:
+
+- GNOME without an AppIndicator extension normally has no GhostlyShare tray icon. Restore the existing window from the dock, Overview, or application launcher.
+- KDE Plasma, XFCE, MATE, and similar desktops can show a tray icon when their panel supports it.
+- Wayland and X11 can differ in focus and window placement.
+
+Missing tray support does not prevent GhostlyShare from starting or sharing. Opening GhostlyShare from the launcher again should reactivate the existing instance.
+
 ## Secure Token Storage
 
-Custom-domain API tokens use platform secure credential storage. Use GhostlyShare settings or `ghs cloudflare logout` to remove the saved token.
+The Cloudflare token for custom domains uses secure credential storage provided by the operating system. Remove it through GhostlyShare settings or `ghs cloudflare logout` when it is no longer needed.
 
-## Desktop Differences
+## Settings and Support Data
 
-Windows provides the most consistent tray and window behavior.
-
-On Linux, tray placement, focus, startup integration, and window positioning can differ between GNOME, KDE Plasma, XFCE, Wayland, X11, and distribution packaging choices. These differences do not change the core LAN and public sharing workflow.
-
-## Local Data
-
-Typical app-state locations:
+Typical locations:
 
 - Windows: `%LOCALAPPDATA%\GhostlyShare`
 - Linux: `${XDG_STATE_HOME:-$HOME/.local/state}/GhostlyShare`
 
-Use **Settings → Settings folder** to open the exact folder used on the current device.
+Use **Settings → Settings folder** to open the exact location used on the current device.

@@ -1,80 +1,66 @@
 # App Detection and Diagnostics
 
-GhostlyShare checks apps running on your computer and shows the ones that can be opened in a browser or shared safely.
+GhostlyShare looks for local HTTP and HTTPS apps that can be opened in a browser and shared without asking you to configure every port manually.
 
-It can recognize development websites, APIs, Swagger pages, dashboards, static sites, redirects, and many common development servers.
+It commonly finds development websites, APIs, Swagger pages, dashboards, static sites, redirects, and apps running through WSL or Docker. Detection is helpful, but it is not a promise that every open port or every network service will be shown.
 
-## Supported Local Environments
+## What You Can Expect
 
-GhostlyShare can identify apps running in:
+- GhostlyShare scans the current computer, not other computers on your LAN.
+- Standard web ports such as 80 and 443 are supported.
+- IPv4 and IPv6 addresses for the same app are normally combined.
+- Genuinely different endpoints can appear separately even when they use the same port.
+- A useful page such as Swagger UI can be kept as the start address instead of always opening `/`.
+- Docker and WSL apps need a local address that the host computer can reach.
 
-- Windows
-- Linux
-- WSL
-- Docker
+The desktop app refreshes over time. `ghs scan` is a single snapshot, so a short-lived app or an app that started during a refresh can appear at a different moment. Both use the same user-facing detection rules.
 
-The app card can show the detected execution environment next to the port.
+## Choose an Exact Address
 
-GhostlyShare scans local endpoints. It does not scan other computers on your LAN.
-
-## What GhostlyShare Checks
-
-- Common development ports are supported.
-- Standard web ports `80` and `443` are supported.
-- Apps available through IPv4 and IPv6 are combined when GhostlyShare can confirm that they are the same app.
-- If several different apps use the same port, CLI users can select one with its exact local URL.
-
-Example:
+When a port has more than one distinct endpoint, CLI users can select the intended one with its full local URL:
 
 ```bash
+ghs share http://localhost:5173
 ghs share http://[::1]:5173
 ```
 
-## Useful Start Pages
+Always verify the local page before sharing it.
 
-When an API exposes a useful browser page away from `/`, GhostlyShare can keep that route. For example, an API may open its Swagger UI instead of a metadata or empty root page.
+## Port Discovery Preferences
 
-HTTP-to-HTTPS redirects are followed only when the local target can be checked safely.
+Open **Settings → Port Discovery → Manage** to add a preference:
 
-## Desktop Diagnostics
+- **Always Detect** asks GhostlyShare to include a web app on one exact port when possible.
+- **Never Show** hides a port or port range from the app list.
+- Ports without a custom rule remain automatic.
+
+You can also open **Manage port rules** from an app card. A rule applies to every app using that port. These preferences influence what is shown; they do not turn an unsafe or unreachable service into a shareable app.
+
+## Understand a Missing App
 
 Open:
 
 **Settings → Discovery diagnostics → Open**
 
-The diagnostics window shows detected apps and anything GhostlyShare checked but did not display. It gives a short reason such as:
+The diagnostics window shows a short result for endpoints GhostlyShare checked, such as detected, hidden, blocked for safety, temporarily skipped, timed out, or unreachable.
 
-- Detected and shown.
-- Hidden because the app signal was too weak.
-- Blocked by a safety rule.
-- Skipped until a retry.
-- Timed out.
-- Failed because the endpoint was not HTTP or could not be reached.
+Diagnostics are designed for troubleshooting and do not retain page bodies, response headers, full URLs, or detailed process information.
 
-Diagnostics intentionally avoid storing page contents, headers, full URLs, and process details.
-
-## CLI Diagnostics
+CLI users can run:
 
 ```bash
 ghs scan --diagnostics
 ghs scan --diagnostics --json
 ```
 
-Normal scanning remains available:
+## What to Try
 
-```bash
-ghs scan
-ghs scan --json
-```
+1. Confirm the exact local URL still opens in a browser.
+2. Wait for the next desktop refresh or run `ghs scan` again.
+3. Read the short diagnostic reason.
+4. Check whether a container or VM exposes the app to the host.
+5. Check local HTTPS certificate errors and redirect loops.
+6. Review custom Port Discovery rules.
+7. Restart the local app after changing its listening address.
 
-## When an App Is Missing
-
-1. Confirm its local URL opens in a browser.
-2. Wait for the next automatic refresh.
-3. Open Discovery diagnostics or run `ghs scan --diagnostics`.
-4. Check whether the app listens only inside a container or VM without a host-accessible local endpoint.
-5. Check redirects, local HTTPS errors, and whether the endpoint returns an actual app or API signal.
-6. Restart the local app if its listening address or owning process changed.
-7. Include the safe diagnostic reason in a bug report.
-
-See [Troubleshooting](Troubleshooting.md) for common fixes.
+Include only the safe diagnostic reason and minimal reproduction steps in a bug report. See [Troubleshooting](Troubleshooting.md) for more help.

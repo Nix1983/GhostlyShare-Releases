@@ -1,55 +1,65 @@
 # Password Protection
 
-Password protection is available for public random links and public custom domains. It is not available for LAN sharing.
+Password protection is available for both LAN and public sharing. It adds a small sign-in page before GhostlyShare forwards requests to the local app.
 
-## What It Does
+## When to Use It
 
-Visitors must enter the configured password before GhostlyShare forwards requests to the local app.
+- Add a password to a public preview when the random URL alone is not enough.
+- Add a password to a LAN test when other trusted users share the network.
+- Use a unique temporary password and stop the link when the test ends.
 
-You can configure:
+Password protection is a lightweight access gate. It does not add user accounts, roles, or application-level authorization.
 
-- Password length: 8 to 32 characters.
-- Wrong attempts before lockout: 3 to 10.
-- Default wrong-attempt limit: 3.
-- Lockout duration: 5 minutes.
-- Unlocked visitor session: 5 to 1440 minutes.
-- Default visitor session: 30 minutes.
+## Important LAN Difference
+
+Public links use HTTPS for the visitor-facing connection. LAN links use plain HTTP.
+
+On LAN, the password, session cookie, and app traffic are not encrypted in transit. Use LAN password protection only on a trusted network; it does not make an untrusted Wi-Fi network safe.
 
 ## Desktop App
 
-Open the password settings for the app before sharing or while its public link is active. Save the password and visitor-session rules for that public session.
+Open the key-shaped password action for the selected LAN or Public share. Enter a password and choose the visitor-session rules.
+
+You can set or change protection before starting the link and while the link is active. Test the link in a private browser window to confirm that the prompt appears.
 
 ## CLI
 
-Prompt securely:
+Prompt securely for a public password:
 
 ```bash
 ghs share 5173 --password
 ```
 
-Change attempt and session limits:
+The same option works for LAN:
+
+```bash
+ghs lan 5173 --password
+```
+
+Change the attempt and session limits:
 
 ```bash
 ghs share 5173 --password --password-attempts 5 --password-session-minutes 60
+ghs lan 5173 --password --password-attempts 5 --password-session-minutes 60
 ```
 
-Read a password from an environment variable:
+For scripts, read the password from an environment variable:
 
 ```bash
-export GHS_SHARE_PASSWORD='replace-this'
 ghs share 5173 --password-env GHS_SHARE_PASSWORD
+ghs lan 5173 --password-env GHS_LAN_PASSWORD
 ```
 
-Avoid putting a password directly in command history, scripts, screenshots, or logs.
+Passwords must contain 8 to 32 characters. The wrong-attempt limit can be 3 to 10; the default is 3 and the lockout lasts five minutes. An unlocked visitor session can last 5 to 1440 minutes; the default is 30 minutes.
 
-## Security Limits
+Avoid putting passwords directly in command history, scripts, screenshots, or logs.
 
-GhostlyShare password protection is a lightweight gate for temporary development sharing. It is not:
+## What It Does Not Replace
+
+GhostlyShare password protection is not:
 
 - Multi-user identity management.
 - Role-based access control.
-- A replacement for the local app's authentication.
+- A replacement for the local app's own authentication.
 - A security audit of the local app.
-- Protection against a password shared with the wrong person.
-
-Use a unique temporary password and stop the public link when the review ends.
+- Protection after someone shares the password with another person.

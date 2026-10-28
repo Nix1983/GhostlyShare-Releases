@@ -1,38 +1,31 @@
 # Rate Limits and Sessions
 
-## Active Public Apps
+## Random Public Links
 
-GhostlyShare allows up to three apps to be public at the same time.
+The desktop app keeps room for up to three random public URLs during its current run. Active links and recently stopped links whose URL is being kept for quick reuse both occupy a place.
 
-LAN sharing does not use a public slot and can remain active independently.
+- If all three links are active, another random share cannot start.
+- When an additional place is needed, GhostlyShare can release the oldest inactive random URL.
+- Releasing an inactive URL means that app receives a new random URL the next time it is shared.
+- Fully restarting GhostlyShare ends the previous random-URL session.
+- Custom domains are separate from this three-link limit.
 
-## Random-Link Cooldown
+LAN sharing does not use a public-link place.
 
-Random public links use Cloudflare Quick Tunnels. Cloudflare can temporarily rate-limit new tunnel creation.
+## Temporary Cloudflare Limits
 
-When this happens:
+Random public links use Cloudflare Quick Tunnels. Cloudflare can temporarily limit creation of new links.
 
-- Existing working links may remain active.
-- A new random link may need to wait.
-- GhostlyShare shows the failure or cooldown state.
-- Repeatedly pressing **Go Public** does not bypass the external limit.
-
-Wait for the cooldown and try again, or use an existing configured custom domain when appropriate.
+Existing links may continue to work, but a new link may need to wait. Repeatedly selecting **Go Public** does not bypass that external limit. Wait and try again later, or use an already configured custom domain when appropriate.
 
 ## Password Sessions
 
-A visitor who enters the correct public-link password receives an unlocked browser session for the configured number of minutes.
+After a visitor enters the correct password, that browser remains unlocked for the configured number of minutes.
 
-This visitor session is separate from:
-
-- The public link lifetime.
-- The local app's own login session.
-- Other visitors.
-
-Stopping the public link ends access regardless of the remaining visitor-session time.
+This visitor session is separate from the link lifetime and from the local app's own login. Stopping the GhostlyShare link ends access regardless of the remaining visitor-session time.
 
 ## CLI Processes
 
-Every running `ghs share` process represents one public sharing session. Every running `ghs lan` process represents one LAN sharing session.
+Every running `ghs share` process owns one public sharing session. Every running `ghs lan` process owns one LAN session.
 
-Press `Ctrl+C` in the owning terminal to stop and clean up that session.
+Press `Ctrl+C` in the owning terminal to stop and clean up that session. There is no separate background daemon, `list`, or `stop` command.

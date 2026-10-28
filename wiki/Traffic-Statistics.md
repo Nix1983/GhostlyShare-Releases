@@ -1,26 +1,21 @@
 # Traffic Statistics
 
-GhostlyShare shows simple local activity counters for the current public-link session.
+GhostlyShare shows simple local activity counters for the current LAN or public sharing session.
 
-Depending on the view, the counters can include:
+Depending on the view, you can see requests, approximate visitors, and recent or currently active use. These counters provide quick feedback that a phone test, demo, webhook, or review link is receiving traffic.
 
-- Requests.
-- Approximate visitors.
-- Recently active or currently active users.
-
-These numbers are intended as quick feedback that a demo, webhook, or review link is being used.
+LAN and Public keep separate counters even when both are active for the same local app.
 
 ## What the Counters Are Not
 
 They are not:
 
-- Full analytics.
+- Full analytics or permanent monitoring.
 - Billing data.
-- A security log.
+- A security or audit log.
 - Proof of a unique person.
-- A guarantee that every request was successful.
-- Permanent monitoring.
+- A guarantee that every request succeeded.
 
-Proxies, browser behavior, retries, background requests, and shared network addresses can affect visitor estimates.
+Browsers can make several background requests for one page. Proxies, retries, and shared network addresses can also affect visitor estimates.
 
-Statistics belong to the current sharing session and reset when a new session begins.
+Counters belong to the current session and reset when a new session begins.

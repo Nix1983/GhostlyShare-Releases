@@ -1,31 +1,34 @@
 # Cleanup and Uninstall
 
+You do not need to uninstall GhostlyShare before updating it. Follow [Updating an Existing Installation](Installation.md#updating-an-existing-installation) instead.
+
 ## Before Uninstalling
 
 1. Stop every LAN and public share.
-2. Close running `ghs lan` and `ghs share` commands with `Ctrl+C`.
-3. For custom domains, allow GhostlyShare to remove temporary DNS and tunnel resources.
-4. Remove the saved Cloudflare token:
-   - Desktop: **Settings → API token → Delete**
-   - CLI: `ghs cloudflare logout`
-5. Optionally delete the downloaded `cloudflared` helper from desktop settings.
+2. End running `ghs lan` and `ghs share` commands with `Ctrl+C`.
+3. Fully quit the desktop app so it can close its helper processes and clean up its temporary custom-domain resources.
+4. Remove the saved Cloudflare token if you no longer want it stored:
+   - Desktop: open the Cloudflare API-token section in **Settings** and choose **Delete**.
+   - CLI: run `ghs cloudflare logout`.
+
+Closing or minimizing the window is not always the same as fully quitting on a desktop with tray support. Use GhostlyShare's **Quit** action and confirm it when asked.
 
 ## Windows Desktop
 
-- **Microsoft Store:** uninstall GhostlyShare from Windows **Installed apps** or the Start menu.
-- **Direct setup:** uninstall GhostlyShare from Windows **Installed apps**.
+- **Microsoft Store:** remove GhostlyShare from Windows **Installed apps** or from the Start menu.
+- **Direct setup:** remove GhostlyShare from Windows **Installed apps**.
 
 ## Windows CLI
 
-Delete the extracted CLI folder. Remove that folder from `PATH` if you added it manually.
+Delete the extracted CLI folder. Remove that folder from your user `PATH` if you added it manually.
 
-## Ubuntu / Debian
+## Ubuntu or Debian
 
 ```bash
 sudo apt remove ghostlyshare ghostlyshare-cli
 ```
 
-Use only the package name you installed when removing just one component.
+Remove only the package name you installed when keeping either the desktop app or CLI.
 
 ## Arch Linux
 
@@ -33,7 +36,7 @@ Use only the package name you installed when removing just one component.
 sudo pacman -R ghostlyshare ghostlyshare-cli
 ```
 
-## Fedora / RHEL-Compatible
+## Fedora, RHEL, Rocky Linux, AlmaLinux
 
 ```bash
 sudo dnf remove ghostlyshare ghostlyshare-cli
@@ -45,23 +48,17 @@ sudo dnf remove ghostlyshare ghostlyshare-cli
 sudo zypper remove ghostlyshare ghostlyshare-cli
 ```
 
-## Optional Local Data Removal
+## Optional Settings Removal
 
-Uninstalling a package can leave preferences and support data so an update or reinstall keeps your settings.
+Uninstalling can leave preferences, logs, and support data so a reinstall keeps your settings. Leaving these files is harmless.
 
-Desktop users can open the exact location with **Settings → Settings folder** before uninstalling.
-
-Typical locations:
+Before uninstalling, use **Settings → Settings folder** to open the exact folder. Typical locations are:
 
 - Windows: `%LOCALAPPDATA%\GhostlyShare`
 - Linux: `${XDG_STATE_HOME:-$HOME/.local/state}/GhostlyShare`
 
-Linux removal command:
+Delete that specific GhostlyShare folder with the file manager only when you no longer need its settings, logs, or cleanup information.
 
-```bash
-rm -rf "${XDG_STATE_HOME:-$HOME/.local/state}/GhostlyShare"
-```
+Secure credentials can be stored separately by the operating system, so remove the Cloudflare token from GhostlyShare before uninstalling when you want a complete cleanup.
 
-Delete local data only after confirming that no settings, logs, or recorded cleanup state are still needed.
-
-Secure credentials can be stored outside this folder by the operating system. Remove the Cloudflare token from GhostlyShare before uninstalling when you want a complete cleanup.
+A separately installed system `cloudflared` does not belong to GhostlyShare and is not removed by uninstalling GhostlyShare.

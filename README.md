@@ -6,52 +6,54 @@
 [![User guide](https://img.shields.io/badge/docs-user%20guide-2ea44f)](wiki/Home.md)
 [![Website](https://img.shields.io/badge/web-GhostlyShare-6f42c1)](https://ghostlyinc.com/en-us/tools/ghostly-share/)
 
-GhostlyShare finds web apps running on your computer and gives you a link you can open on another device or share over the internet.
+GhostlyShare finds websites, APIs, dashboards, and other browser-based apps running on your computer. It gives you a link for testing on another device or sharing a temporary preview over the internet.
 
-- **LAN:** test your app on a phone, tablet, TV, or another computer on the same trusted network.
+- **LAN:** open your app on a phone, tablet, TV, or another computer on the same trusted network.
 - **Public:** create a temporary internet link for a demo, webhook, client review, or remote teammate.
 
-The desktop app provides the easiest visual workflow. The optional `ghs` command-line tool is available for terminals, servers, and scripts. Everything required to run GhostlyShare is included in the download.
+The desktop app is the easiest way to start. The optional `ghs` command-line tool provides the same main workflows for terminals, servers, and scripts. Windows and Linux downloads are self-contained; no separate .NET installation is required.
 
-## Get Started
+## Start in Five Steps
 
-1. [Download the latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) or install GhostlyShare from the [Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR).
-2. Start your local website, API, dashboard, or development server.
-3. Open GhostlyShare and wait for the app to appear.
-4. Select **LAN** to share on your network or **Public** to create an internet link.
-5. Copy the link or show its QR code.
+1. [Install GhostlyShare](wiki/Installation.md).
+2. Start your local website, API, dashboard, or development server and confirm it opens in your browser.
+3. Open GhostlyShare and select the detected app.
+4. Choose **LAN** for nearby devices or **Public** for an internet link.
+5. Copy the link or show its QR code, then stop sharing when you are finished.
 
-Keep GhostlyShare and your local app running while the link is in use. Follow the [Getting Started guide](wiki/Getting-Started.md) for a complete first test.
+Keep the local app, GhostlyShare, and the computer awake while the link is needed. The [Getting Started guide](wiki/Getting-Started.md) walks through a complete first test.
 
-## LAN or Public?
+## Choose LAN or Public
 
 | | LAN | Public |
 | --- | --- | --- |
-| Who can open it? | Devices on the same trusted network | Anyone who has the link |
+| Who can open it? | Devices that can reach your computer on the selected local network | Anyone who receives the link |
 | Internet needed? | No | Yes |
-| Password option | No | Yes |
+| Password and automatic expiry | Optional | Optional |
+| Encryption | Plain HTTP; use only on a trusted network | HTTPS to the public link |
 | Best for | Testing on your own devices | Demos, webhooks, and remote reviews |
 
-LAN and Public can both be active for the same app.
+LAN and Public can be active for the same app. Both show a QR code and simple activity counters for the current session.
 
 ## Downloads
 
-- **Windows:** install the desktop app from the [Microsoft Store](https://apps.microsoft.com/detail/9PJ6DBC342GR), or download it directly from GitHub.
-- **Linux:** packages are available for Ubuntu/Debian, Arch Linux, Fedora, openSUSE, and other RPM-based distributions.
-- **Command line:** the optional `ghs` CLI is available separately for Windows and Linux.
+- **Windows desktop:** use the signed [Microsoft Store version](https://apps.microsoft.com/detail/9PJ6DBC342GR) or the direct setup ZIP from GitHub.
+- **Linux desktop:** packages are available for Debian/Ubuntu, Arch Linux, Fedora, openSUSE, RHEL, Rocky Linux, AlmaLinux, and compatible distributions.
+- **Command line:** install the separate `ghs` package for Windows or Linux if you prefer a terminal.
 
-[Download the latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) · [Installation guide](wiki/Installation.md) · [Release notes](RELEASE-NOTES.md)
+[Download the latest release](https://github.com/Nix1983/GhostlyShare-Releases/releases/latest) · [Choose the correct package](wiki/Installation.md#choose-your-download) · [Read the release notes](RELEASE-NOTES.md)
 
-## What GhostlyShare Includes
+## What You Can Do
 
-- Automatic detection of local websites, APIs, dashboards, and development servers.
-- LAN links that work without Cloudflare or an internet connection.
-- Temporary public links without an account, domain, or API token.
-- Optional passwords and automatic expiration for public links.
-- QR codes, simple live traffic counters, and clear connection status.
-- Windows and Linux desktop apps plus a separate CLI.
+- Automatically find many local websites, APIs, dashboards, redirects, and development servers.
+- Test an app from another device without changing the app's listening address.
+- Create a temporary public link without an account, domain, or API token.
+- Add a password and automatic expiry to LAN or public shares.
+- See a QR code, connection status, and simple live activity counters.
+- Use your own Cloudflare-managed hostname when a random URL is not suitable.
+- Diagnose why a local app or link is unavailable without exposing page contents in the report.
 
-Custom domains are also supported when your domain is managed by Cloudflare. See [Custom Domains](wiki/Custom-Domains.md).
+GhostlyShare does not publish an app merely because it was detected. A share starts only when you choose to start it.
 
 ## Command Line
 
@@ -61,23 +63,24 @@ ghs lan 5173
 ghs share 5173
 ```
 
-`ghs lan` and `ghs share` stay active until you press `Ctrl+C`. See the [CLI guide](wiki/Command-Line-Interface.md) for all commands and options.
+`ghs lan` and `ghs share` stay active until you press `Ctrl+C` or the configured expiry is reached. See the [CLI guide](wiki/Command-Line-Interface.md) for useful examples.
 
 ## Share Safely
 
-- Use LAN sharing only on a trusted network.
-- Anyone who receives a public URL may try to open it.
+- Use LAN sharing only on a trusted network. Its optional password is an access gate, but LAN traffic remains unencrypted.
+- Anyone who receives a public URL may try to open it. Add a password when appropriate.
 - Do not expose private admin panels, databases, secrets, customer data, or services you are not authorized to share.
-- Stop sharing when your test or demo is finished.
+- Stop sharing as soon as the test or review is finished.
 
-Read [Security and Privacy](wiki/Security-and-Privacy.md) before sharing sensitive development services.
+Read [Security and Privacy](wiki/Security-and-Privacy.md) before sharing a sensitive development service.
 
 ## Help
 
 - [Getting Started](wiki/Getting-Started.md)
-- [Installation](wiki/Installation.md)
+- [Installation and Updates](wiki/Installation.md)
 - [LAN Sharing](wiki/LAN-Sharing.md)
 - [Public Sharing](wiki/Going-Public.md)
+- [Command Line](wiki/Command-Line-Interface.md)
 - [Troubleshooting](wiki/Troubleshooting.md)
 - [Complete User Guide](wiki/Home.md)
 

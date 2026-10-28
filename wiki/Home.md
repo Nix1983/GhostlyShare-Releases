@@ -1,29 +1,36 @@
 # GhostlyShare User Guide
 
-GhostlyShare finds web apps running on your computer and lets you open them on your local network or share them through a temporary public link.
+GhostlyShare helps you open a local web app on another device or share it temporarily over the internet. This guide describes what you see and what to do; it does not require knowledge of networking internals.
 
-The desktop app is the easiest starting point. The `ghs` CLI offers the same core workflows for terminals, servers, and scripts.
+## New to GhostlyShare?
 
-## Start Here
+1. [Choose and install the correct package](Installation.md).
+2. [Complete your first LAN or public share](Getting-Started.md).
+3. Read [Security and Privacy](Security-and-Privacy.md) before exposing sensitive development data.
 
-- [Getting Started](Getting-Started.md)
-- [Installation](Installation.md)
-- [LAN Sharing](LAN-Sharing.md)
-- [Public Sharing](Going-Public.md)
+## Sharing Guides
 
-## More Options
+- [LAN Sharing](LAN-Sharing.md) — phones, tablets, TVs, and computers on your trusted network.
+- [Public Sharing](Going-Public.md) — temporary internet links for demos, reviews, and webhooks.
+- [Password Protection](Password-Protection.md) — add a visitor password to LAN or public links.
+- [Link Lifetime](Link-Lifetime.md) — stop a link automatically.
+- [Custom Domains](Custom-Domains.md) — use a hostname from your Cloudflare-managed domain.
+- [Traffic Statistics](Traffic-Statistics.md) — understand the simple session counters.
 
-- [Custom Domains](Custom-Domains.md)
-- [Command Line Interface](Command-Line-Interface.md)
+## Desktop and Command Line
+
 - [App Detection and Diagnostics](App-Detection.md)
+- [App Cards and Duplicate Entries](App-Merging.md)
+- [Command Line Interface](Command-Line-Interface.md)
+- [Windows and Linux](Windows-and-Linux.md)
 
-## Help and Safety
+## Problems, Removal, and Safety
 
 - [Troubleshooting](Troubleshooting.md)
-- [Security and Privacy](Security-and-Privacy.md)
+- [Frequently Asked Questions](FAQ.md)
+- [Report a Bug or Request a Feature](Reporting-Bugs-and-Feature-Requests.md)
+- [Known Limitations](Known-Limitations.md)
 - [Cleanup and Uninstall](Cleanup-and-Uninstall.md)
 - [Responsible Use](../RESPONSIBLE_USE.md)
 
-More focused pages for passwords, link lifetime, traffic statistics, platforms, and known limitations are linked from the guides where they are relevant.
-
-For downloads, release notes, and feedback, return to the [main page](../README.md).
+For downloads, current release notes, and feedback, return to the [main page](../README.md).

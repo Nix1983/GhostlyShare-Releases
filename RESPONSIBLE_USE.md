@@ -28,9 +28,9 @@ You may not use GhostlyShare for:
 
 ## LAN Links
 
-A LAN link can be opened by devices on the selected local network. It has no built-in GhostlyShare password protection.
+A LAN link can be opened by devices on the selected local network. Its optional GhostlyShare password is an access gate, but the LAN connection remains unencrypted.
 
-Use LAN sharing only on a trusted network. Guest Wi-Fi, shared office networks, hotels, schools, and public hotspots should be treated as untrusted. Stop LAN sharing when the device test is finished.
+Use LAN sharing only on a trusted network. Guest Wi-Fi, shared office networks, hotels, schools, and public hotspots should be treated as untrusted even when a password is enabled. Stop LAN sharing when the device test is finished.
 
 ## Public Links
 

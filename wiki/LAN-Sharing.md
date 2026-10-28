@@ -1,84 +1,87 @@
 # LAN Sharing
 
-LAN sharing makes a detected local app reachable from devices on the same private IPv4 network. It does not create a Cloudflare tunnel and does not require an account, token, domain, or internet connection.
+LAN sharing gives another device a temporary address for an app running on your computer. It stays inside the selected private IPv4 network: no Cloudflare account, domain, or internet connection is required.
 
-Typical uses:
-
-- Test a responsive website on your phone.
-- Open a dashboard on a tablet.
-- Test a local app from another computer.
-- Show a development build on a TV or other browser device.
+Use it to test a responsive site on a phone, open a dashboard on a tablet, or show a development build on another computer or TV.
 
 ## Desktop App
 
-1. Start the local app.
-2. Find it in GhostlyShare.
-3. Select **LAN** at the bottom of its card.
+1. Start the local app and find its card in GhostlyShare.
+2. Select **LAN**.
+3. Optionally set a password or link lifetime.
 4. Switch **LAN On**.
-5. Copy the LAN URL or open the QR code.
-6. Open the link from a device on the same network.
+5. Open the displayed address or scan its QR code from the other device.
+6. Use the activity button when you want to see simple session counters.
 7. Switch **LAN Off** when finished.
 
-LAN and public sharing are independent. You can use either one or both for the same app.
+LAN and Public are independent. You can use either one or both for the same local app.
+
+## Optional Password and Expiry
+
+A LAN password can prevent casual access by other devices on the same network. It does **not** encrypt the password, cookie, or app traffic because LAN links use plain HTTP.
+
+Use the password only as an additional gate on a trusted network. Do not use LAN sharing for sensitive data on guest Wi-Fi, hotels, public hotspots, or networks containing unknown devices.
+
+An expiry can turn the LAN link off automatically after a chosen duration or at the end of the day. You can also stop it immediately at any time.
+
+See [Password Protection](Password-Protection.md) and [Link Lifetime](Link-Lifetime.md).
 
 ## CLI
+
+Basic examples:
 
 ```bash
 ghs lan 5173
 ghs lan http://localhost:3000
 ```
 
-Print only the URL:
+Add a password without putting it in shell history, or add an expiry:
 
 ```bash
-ghs lan 5173 --url-only
+ghs lan 5173 --password
+ghs lan 5173 --expires-after 30m
 ```
 
-Use JSON events:
-
-```bash
-ghs lan 5173 --json
-```
-
-Choose a specific network adapter when the computer has multiple adapters:
+Choose a specific adapter on a computer with several networks:
 
 ```bash
 ghs lan 5173 --interface Wi-Fi
 ghs lan 5173 --interface 192.168.1.20
 ```
 
-The interface value can be an adapter name, adapter ID, or local IPv4 address. Press `Ctrl+C` to stop.
+The interface value can be an adapter name, adapter ID, or local IPv4 address. Use `--url-only` for only the ready URL or `--json` for machine-readable events. Press `Ctrl+C` to stop.
 
-## Security
+## When GhostlyShare Shows Limited
 
-A GhostlyShare LAN link has no built-in password protection. Anyone on the selected network may be able to open it.
+A **Limited** warning means GhostlyShare can start the link but cannot confirm that the intended device will reach it.
 
-Use LAN sharing only on a trusted home or development network. Avoid public hotspots, hotels, guest Wi-Fi, and shared networks containing unknown devices.
+A common example is a virtual machine using VirtualBox NAT. The link can work inside the VM while phones and computers on the physical LAN cannot reach the VM address. Change the VM network adapter to **Bridged Adapter**, reconnect it to the intended network, and start the LAN share again.
 
-## Automatic Stop Conditions
+The warning does not weaken or bypass a safety check. It tells you that the selected network may not provide the reachability you expect.
 
-LAN sharing stops when:
+## When Sharing Stops Automatically
 
-- You turn it off or press `Ctrl+C`.
-- The local app closes.
-- The local endpoint or owning process changes.
+A LAN share stops when:
+
+- You switch it off, press `Ctrl+C`, or its expiry is reached.
+- The local app closes or is replaced by a different app.
 - The selected network changes or disappears.
-- GhostlyShare exits.
+- GhostlyShare or the owning `ghs` process exits.
+- The computer shuts down.
 
-LAN sessions are not restored after a restart.
+While the computer is asleep or suspended, the link is unreachable. After waking, check the displayed state before relying on the link again. LAN sessions are not restored after GhostlyShare restarts.
 
 ## A Device Cannot Open the Link
 
 Check these points:
 
-- Both devices are on the same network and subnet.
+- Both devices are on the same trusted network and subnet.
 - The client is not on isolated guest Wi-Fi.
-- Access-point isolation is disabled.
-- The operating system firewall allows GhostlyShare on the private network.
-- A VPN is not sending the devices through different routes.
-- The displayed IP address belongs to the intended adapter.
-- The local app and GhostlyShare are still running.
-
-When several adapters exist, use the CLI `--interface` option to test a specific one.
+- Wireless client or access-point isolation is disabled.
+- The operating-system firewall allows GhostlyShare on the private network.
+- A VPN is not sending the two devices through different routes.
+- The displayed address belongs to the intended adapter.
+- A virtual machine uses bridged networking rather than NAT when physical devices need access.
+- The local app, GhostlyShare, and computer are still running and awake.
 
 See [Troubleshooting](Troubleshooting.md) for more help.

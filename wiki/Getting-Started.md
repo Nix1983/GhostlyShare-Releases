@@ -1,48 +1,52 @@
 # Getting Started
 
-## First Desktop Test
+Start with a harmless local test app. Keep the local app, GhostlyShare, and your computer running and awake until the test is finished.
 
-1. Start a local website, API, dashboard, or development server.
-2. Confirm that its local URL opens in your browser.
-3. Open GhostlyShare.
-4. Wait for the app card to appear.
-5. Choose **LAN** or **Public** at the bottom of the card.
-6. For LAN, switch **LAN On**. For Public, select **Go Public**.
-7. Copy the link or open its QR code and test it from the intended device.
-8. Stop sharing when your test is finished.
+## Before You Share
 
-Keep both GhostlyShare and the local app running. Closing either one stops the route.
+1. Start your website, API, dashboard, or development server.
+2. Open its local address in a browser on the same computer.
+3. Start GhostlyShare and wait for the app card to appear.
 
-## Local Network Example
+GhostlyShare may show more than one app on the same port when they are genuinely different local endpoints. Check the displayed address and app name before sharing.
 
-Use this for a phone or tablet connected to the same Wi-Fi:
+## Test on a Phone or Tablet
 
-1. Open **LAN** on the app card and switch **LAN On**.
-2. Open the displayed LAN URL or scan the QR code.
-3. Turn the switch off when finished.
+Use LAN sharing when both devices are on the same trusted home or development network.
 
-LAN sharing does not use Cloudflare and has no built-in password. Use it only on a trusted network.
+1. Select **LAN** on the app card.
+2. Optionally set a password or an automatic expiry.
+3. Switch **LAN On**.
+4. Scan the QR code or open the displayed address on the other device.
+5. Switch **LAN Off** when finished.
 
-## Public Link Example
+LAN traffic uses plain HTTP. A password limits access but does not encrypt the traffic, so avoid guest Wi-Fi, hotels, and public hotspots.
 
-Use this for a remote teammate or webhook:
+## Create a Temporary Internet Link
 
-1. Open **Public** on the app card and select **Go Public**.
-2. Wait until the card shows that the link is live.
-3. Optionally add a password or expiration time before sharing.
-4. Copy the public URL.
-5. Select **Stop** when the review is over.
+Use Public sharing for a remote teammate, client review, or webhook.
+
+1. Select **Public** on the app card.
+2. Keep **Random** selected for the quickest setup.
+3. Optionally set a password or an automatic expiry.
+4. Select **Go Public** and wait for **Live**.
+5. Copy the URL or show its QR code.
+6. Select **Stop** when the review is over.
+
+Stopping makes the route unavailable immediately. GhostlyShare never makes an app public again without another explicit **Go Public** action.
 
 ## Prefer the Command Line?
 
+Find local apps:
+
 ```bash
 ghs scan
-ghs lan 5173
 ```
 
-Or create a public link:
+Share port 5173 on the LAN or internet:
 
 ```bash
+ghs lan 5173
 ghs share 5173
 ```
 
@@ -50,7 +54,9 @@ The command remains active while the link is running. Press `Ctrl+C` to stop it.
 
 ## App Not Listed?
 
-Open **Settings → Discovery diagnostics → Open**. The window explains why an app was detected, hidden, blocked, skipped, timed out, or could not be reached.
+First confirm that the local URL still opens in a browser. Then open:
+
+**Settings → Discovery diagnostics → Open**
 
 CLI users can run:
 
@@ -58,4 +64,4 @@ CLI users can run:
 ghs scan --diagnostics
 ```
 
-Continue with [App Detection and Diagnostics](App-Detection.md) or [Troubleshooting](Troubleshooting.md).
+The result gives a short, safe explanation without storing the page contents. Continue with [App Detection and Diagnostics](App-Detection.md) or [Troubleshooting](Troubleshooting.md).
