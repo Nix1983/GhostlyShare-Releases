@@ -1,10 +1,10 @@
 # Traffic Statistics
 
-GhostlyShare shows simple local activity counters for the current LAN or public sharing session.
+GhostlyShare shows simple local activity counters for the current public or LAN sharing session.
 
 Depending on the view, you can see requests, approximate visitors, and recent or currently active use. These counters provide quick feedback that a phone test, demo, webhook, or review link is receiving traffic.
 
-LAN and Public keep separate counters even when both are active for the same local app.
+Public and LAN keep separate counters even when both are active for the same local app.
 
 ## What the Counters Are Not
 

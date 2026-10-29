@@ -1,26 +1,26 @@
 # Link Lifetime
 
-LAN and public links can stop automatically after a chosen amount of active time or at the end of the current day.
+Public and LAN links can stop automatically after a chosen amount of active time or at the end of the current day.
 
 Use an expiry when you do not want a forgotten test or review link to remain available.
 
 ## Desktop App
 
-Open the clock-shaped lifetime action for the selected LAN or Public share. Choose a preset, **Today**, or a custom duration.
+Open the clock-shaped lifetime action for the selected Public or LAN share. Choose a preset, **Today**, or a custom duration.
 
 The link stops when the lifetime is reached even if the local app and GhostlyShare are still running. You can always stop it earlier.
 
 ## CLI
 
-The same option works for LAN and public sharing:
+The same option works for public and LAN sharing:
 
 ```bash
-ghs lan 5173 --expires-after 30m
 ghs share 5173 --expires-after 15m
 ghs share 5173 --expires-after 3h
 ghs share 5173 --expires-after 1d
 ghs share 5173 --expires-after 1d4h15m
 ghs share 5173 --expires-after today
+ghs lan 5173 --expires-after 30m
 ```
 
 Allowed duration: `1m` to `40d23h59m`.

@@ -2,11 +2,19 @@
 
 ## Does GhostlyShare deploy my app?
 
-No. Your app continues running on your computer. GhostlyShare gives it a temporary LAN or public route, and the route works only while the required app and computer remain available.
+No. Your app continues running on your computer. GhostlyShare gives it a temporary public or LAN route, and the route works only while the required app and computer remain available.
 
 ## Does detection make an app public?
 
-No. GhostlyShare starts a LAN or public share only after you explicitly turn it on.
+No. GhostlyShare starts a public or LAN share only after you explicitly turn it on.
+
+## Why does a new public link take a moment to work?
+
+A new hostname and public connection can need a short readiness delay. If it remains offline, check internet access, VPN, proxy, DNS filtering, and `ghs doctor`.
+
+## Do I need to install cloudflared?
+
+No. GhostlyShare manages its own supported helper for public sharing. A separately installed system copy is not required and is not removed by a GhostlyShare update.
 
 ## Can I protect a LAN link with a password?
 
@@ -26,23 +34,15 @@ A standard GNOME session often does not provide AppIndicator tray support. Resto
 
 ## What happens when the computer sleeps?
 
-LAN and public links are unreachable while the computer sleeps or is suspended. After waking, wait for the network to return, check GhostlyShare's state, and test the link again.
+Public and LAN links are unreachable while the computer sleeps or is suspended. After waking, wait for the network to return, check GhostlyShare's state, and test the link again.
 
 ## Will an update remove my settings or Cloudflare token?
 
 Normally no. Install the newer package over the old version. Fully stop shares and quit GhostlyShare before updating. See [Installation and Updates](Installation.md).
 
-## Do I need to install cloudflared?
-
-No. GhostlyShare manages its own supported helper for public sharing. A separately installed system copy is not required and is not removed by a GhostlyShare update.
-
 ## How long does a CLI share last?
 
-Only while the owning `ghs lan` or `ghs share` command is running, or until its expiry is reached. Press `Ctrl+C` to stop it.
-
-## Why does a new public link take a moment to work?
-
-A new hostname and public connection can need a short readiness delay. If it remains offline, check internet access, VPN, proxy, DNS filtering, and `ghs doctor`.
+Only while the owning `ghs share` or `ghs lan` command is running, or until its expiry is reached. Press `Ctrl+C` to stop it.
 
 ## Is GhostlyShare suitable for production hosting?
 

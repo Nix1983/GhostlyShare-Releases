@@ -10,18 +10,6 @@ Start with a harmless local test app. Keep the local app, GhostlyShare, and your
 
 GhostlyShare may show more than one app on the same port when they are genuinely different local endpoints. Check the displayed address and app name before sharing.
 
-## Test on a Phone or Tablet
-
-Use LAN sharing when both devices are on the same trusted home or development network.
-
-1. Select **LAN** on the app card.
-2. Optionally set a password or an automatic expiry.
-3. Switch **LAN On**.
-4. Scan the QR code or open the displayed address on the other device.
-5. Switch **LAN Off** when finished.
-
-LAN traffic uses plain HTTP. A password limits access but does not encrypt the traffic, so avoid guest Wi-Fi, hotels, and public hotspots.
-
 ## Create a Temporary Internet Link
 
 Use Public sharing for a remote teammate, client review, or webhook.
@@ -35,6 +23,18 @@ Use Public sharing for a remote teammate, client review, or webhook.
 
 Stopping makes the route unavailable immediately. GhostlyShare never makes an app public again without another explicit **Go Public** action.
 
+## Test on a Phone or Tablet over LAN
+
+Use LAN sharing when both devices are on the same trusted home or development network.
+
+1. Select **LAN** on the app card.
+2. Optionally set a password or an automatic expiry.
+3. Switch **LAN On**.
+4. Scan the QR code or open the displayed address on the other device.
+5. Switch **LAN Off** when finished.
+
+LAN traffic uses plain HTTP. A password limits access but does not encrypt the traffic, so avoid guest Wi-Fi, hotels, and public hotspots.
+
 ## Prefer the Command Line?
 
 Find local apps:
@@ -43,11 +43,11 @@ Find local apps:
 ghs scan
 ```
 
-Share port 5173 on the LAN or internet:
+Share port 5173 over the internet or on the LAN:
 
 ```bash
-ghs lan 5173
 ghs share 5173
+ghs lan 5173
 ```
 
 The command remains active while the link is running. Press `Ctrl+C` to stop it.

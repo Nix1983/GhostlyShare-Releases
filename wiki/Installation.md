@@ -24,8 +24,8 @@ Every download link and command on this page uses GitHub's `latest` address and 
 
 You normally do not need to uninstall the old version.
 
-1. Stop active LAN and public shares.
-2. End running `ghs lan` and `ghs share` commands with `Ctrl+C`.
+1. Stop active public and LAN shares.
+2. End running `ghs share` and `ghs lan` commands with `Ctrl+C`.
 3. Fully quit the GhostlyShare desktop app.
 4. Download and install the latest package using the same method as before.
 5. Start GhostlyShare and check **About**, or run `ghs version`.
@@ -222,7 +222,7 @@ sudo zypper remove ghostlyshare-cli
 - Start the desktop app from the normal application launcher.
 - Open **About** and check the displayed version.
 - If the CLI is installed, run `ghs version` and `ghs --help`.
-- Continue with [Getting Started](Getting-Started.md) for a first LAN or public share.
+- Continue with [Getting Started](Getting-Started.md) for a first public or LAN share.
 
 ## Verify a Download
 

@@ -4,7 +4,7 @@ Start with these checks:
 
 1. Confirm that the local app still opens directly in a browser on the GhostlyShare computer.
 2. Keep the local app, GhostlyShare, and the computer running and awake.
-3. Check the selected LAN/Public mode and the status shown on the app card.
+3. Check the selected Public/LAN mode and the status shown on the app card.
 4. Open **Settings → Discovery diagnostics → Open** when the app itself is missing.
 
 ## A Local App Is Missing
@@ -43,6 +43,22 @@ Use an exact URL in the CLI when several distinct endpoints share a port:
 ghs share http://localhost:5173
 ```
 
+## A Public Link Is Pending or Offline
+
+- Confirm that the computer has internet access.
+- Wait briefly for a new hostname to become ready.
+- Check VPN, proxy, DNS filtering, and security software.
+- Make sure fewer than three random public links are active.
+- Run:
+
+```bash
+ghs doctor
+```
+
+Cloudflare can temporarily limit new random links. Existing links can continue while a new one needs to wait.
+
+GhostlyShare downloads and uses its own supported public-sharing helper. A separately installed `cloudflared` is not required. If a helper update cannot be verified while offline, connect to the internet and try again.
+
 ## A LAN Link Does Not Open
 
 - Put both devices on the same private network and subnet.
@@ -60,25 +76,9 @@ If GhostlyShare shows **Limited** inside a virtual machine, NAT is a likely caus
 
 A network change can stop the LAN session. Start it again after reconnecting.
 
-## A Public Link Is Pending or Offline
-
-- Confirm that the computer has internet access.
-- Wait briefly for a new hostname to become ready.
-- Check VPN, proxy, DNS filtering, and security software.
-- Make sure fewer than three random public links are active.
-- Run:
-
-```bash
-ghs doctor
-```
-
-Cloudflare can temporarily limit new random links. Existing links can continue while a new one needs to wait.
-
-GhostlyShare downloads and uses its own supported public-sharing helper. A separately installed `cloudflared` is not required. If a helper update cannot be verified while offline, connect to the internet and try again.
-
 ## A Link Stopped During Sleep
 
-LAN and public links cannot be reached while the computer is sleeping, suspended, shut down, or disconnected from the required network.
+Public and LAN links cannot be reached while the computer is sleeping, suspended, shut down, or disconnected from the required network.
 
 After waking:
 

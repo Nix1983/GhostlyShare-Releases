@@ -1,21 +1,21 @@
 # GhostlyShare User Guide
 
-GhostlyShare helps you open a local web app on another device or share it temporarily over the internet. This guide describes what you see and what to do; it does not require knowledge of networking internals.
+GhostlyShare helps you share a local web app temporarily over the internet or open it on another device. This guide describes what you see and what to do; it does not require knowledge of networking internals.
 
 ## New to GhostlyShare?
 
 1. [Choose and install the correct package](Installation.md).
-2. [Complete your first LAN or public share](Getting-Started.md).
+2. [Complete your first public or LAN share](Getting-Started.md).
 3. Read [Security and Privacy](Security-and-Privacy.md) before exposing sensitive development data.
 
 ## Sharing Guides
 
-- [LAN Sharing](LAN-Sharing.md) — phones, tablets, TVs, and computers on your trusted network.
 - [Public Sharing](Going-Public.md) — temporary internet links for demos, reviews, and webhooks.
-- [Password Protection](Password-Protection.md) — add a visitor password to LAN or public links.
-- [Link Lifetime](Link-Lifetime.md) — stop a link automatically.
 - [Custom Domains](Custom-Domains.md) — use a hostname from your Cloudflare-managed domain.
+- [Password Protection](Password-Protection.md) — add a visitor password to public or LAN links.
+- [Link Lifetime](Link-Lifetime.md) — stop a link automatically.
 - [Traffic Statistics](Traffic-Statistics.md) — understand the simple session counters.
+- [LAN Sharing](LAN-Sharing.md) — phones, tablets, TVs, and computers on your trusted network.
 
 ## Desktop and Command Line
 

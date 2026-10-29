@@ -14,7 +14,7 @@ Use it to test a responsive site on a phone, open a dashboard on a tablet, or sh
 6. Use the activity button when you want to see simple session counters.
 7. Switch **LAN Off** when finished.
 
-LAN and Public are independent. You can use either one or both for the same local app.
+Public and LAN are independent. You can use either one or both for the same local app.
 
 ## Optional Password and Expiry
 

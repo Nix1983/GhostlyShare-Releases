@@ -2,15 +2,7 @@
 
 GhostlyShare is a temporary development-sharing tool. Share only the specific app needed for a test, verify the displayed address, and stop the link as soon as the work is finished.
 
-Detection alone never makes an app public. LAN and public routes start only after you choose to start them.
-
-## LAN Sharing
-
-- Devices that can reach the selected private IPv4 network may be able to open the link.
-- An optional password adds an access gate, but LAN traffic remains plain HTTP and is not encrypted.
-- Use LAN sharing only on a trusted network.
-- Guest Wi-Fi, client isolation, firewalls, VPNs, and VM NAT can block intended access.
-- A network change can stop the session rather than silently move it to a different network.
+Detection alone never makes an app public. Public and LAN routes start only after you choose to start them.
 
 ## Public Sharing
 
@@ -20,6 +12,14 @@ Detection alone never makes an app public. LAN and public routes start only afte
 - Expiry limits how long a route runs; it does not control who receives the link.
 - Visitor-facing traffic uses a Cloudflare-hosted HTTPS link.
 - The local app, GhostlyShare, and computer must remain running and awake.
+
+## LAN Sharing
+
+- Devices that can reach the selected private IPv4 network may be able to open the link.
+- An optional password adds an access gate, but LAN traffic remains plain HTTP and is not encrypted.
+- Use LAN sharing only on a trusted network.
+- Guest Wi-Fi, client isolation, firewalls, VPNs, and VM NAT can block intended access.
+- A network change can stop the session rather than silently move it to a different network.
 
 ## Protecting the Selected App
 

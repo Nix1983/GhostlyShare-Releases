@@ -23,4 +23,4 @@ CLI users can choose an exact endpoint instead of only a port:
 ghs share http://localhost:5173
 ```
 
-Always verify the displayed local address before starting LAN or public sharing. See [App Detection and Diagnostics](App-Detection.md) for more help.
+Always verify the displayed local address before starting public or LAN sharing. See [App Detection and Diagnostics](App-Detection.md) for more help.

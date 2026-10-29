@@ -20,15 +20,15 @@ Include:
 - Exact error text.
 - A screenshot when it helps.
 - For a missing app, its local URL, framework, and the safe reason from Discovery diagnostics.
-- For LAN, whether the devices use the same network and whether a VM or VPN is involved.
 - For Public, whether the link is Random or Custom and whether the local app still opens.
+- For LAN, whether the devices use the same network and whether a VM or VPN is involved.
 
 ## Protect Private Information
 
 Do not post:
 
 - Cloudflare API tokens.
-- LAN or public-link passwords.
+- Public-link or LAN passwords.
 - Private URLs that should not be shared.
 - Customer, personal, or confidential data.
 - Complete logs or screenshots containing secrets.

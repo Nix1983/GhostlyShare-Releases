@@ -1,6 +1,6 @@
 # Password Protection
 
-Password protection is available for both LAN and public sharing. It adds a small sign-in page before GhostlyShare forwards requests to the local app.
+Password protection is available for both public and LAN sharing. It adds a small sign-in page before GhostlyShare forwards requests to the local app.
 
 ## When to Use It
 
@@ -18,7 +18,7 @@ On LAN, the password, session cookie, and app traffic are not encrypted in trans
 
 ## Desktop App
 
-Open the key-shaped password action for the selected LAN or Public share. Enter a password and choose the visitor-session rules.
+Open the key-shaped password action for the selected Public or LAN share. Enter a password and choose the visitor-session rules.
 
 You can set or change protection before starting the link and while the link is active. Test the link in a private browser window to confirm that the prompt appears.
 

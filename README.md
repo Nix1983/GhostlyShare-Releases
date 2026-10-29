@@ -8,8 +8,8 @@
 
 GhostlyShare finds websites, APIs, dashboards, and other browser-based apps running on your computer. It gives you a link for testing on another device or sharing a temporary preview over the internet.
 
-- **LAN:** open your app on a phone, tablet, TV, or another computer on the same trusted network.
 - **Public:** create a temporary internet link for a demo, webhook, client review, or remote teammate.
+- **LAN:** open your app on a phone, tablet, TV, or another computer on the same trusted network.
 
 The desktop app is the easiest way to start. The optional `ghs` command-line tool provides the same main workflows for terminals, servers, and scripts. Windows and Linux downloads are self-contained; no separate .NET installation is required.
 
@@ -18,22 +18,22 @@ The desktop app is the easiest way to start. The optional `ghs` command-line too
 1. [Install GhostlyShare](wiki/Installation.md).
 2. Start your local website, API, dashboard, or development server and confirm it opens in your browser.
 3. Open GhostlyShare and select the detected app.
-4. Choose **LAN** for nearby devices or **Public** for an internet link.
+4. Choose **Public** for an internet link or **LAN** for nearby devices.
 5. Copy the link or show its QR code, then stop sharing when you are finished.
 
 Keep the local app, GhostlyShare, and the computer awake while the link is needed. The [Getting Started guide](wiki/Getting-Started.md) walks through a complete first test.
 
-## Choose LAN or Public
+## Choose Public or LAN
 
-| | LAN | Public |
+| | Public | LAN |
 | --- | --- | --- |
-| Who can open it? | Devices that can reach your computer on the selected local network | Anyone who receives the link |
-| Internet needed? | No | Yes |
+| Who can open it? | Anyone who receives the link | Devices that can reach your computer on the selected local network |
+| Internet needed? | Yes | No |
 | Password and automatic expiry | Optional | Optional |
-| Encryption | Plain HTTP; use only on a trusted network | HTTPS to the public link |
-| Best for | Testing on your own devices | Demos, webhooks, and remote reviews |
+| Encryption | HTTPS to the public link | Plain HTTP; use only on a trusted network |
+| Best for | Demos, webhooks, and remote reviews | Testing on your own devices |
 
-LAN and Public can be active for the same app. Both show a QR code and simple activity counters for the current session.
+Public and LAN can be active for the same app. Both show a QR code and simple activity counters for the current session.
 
 ## Downloads
 
@@ -46,9 +46,9 @@ LAN and Public can be active for the same app. Both show a QR code and simple ac
 ## What You Can Do
 
 - Automatically find many local websites, APIs, dashboards, redirects, and development servers.
-- Test an app from another device without changing the app's listening address.
 - Create a temporary public link without an account, domain, or API token.
-- Add a password and automatic expiry to LAN or public shares.
+- Test an app from another device without changing the app's listening address.
+- Add a password and automatic expiry to public or LAN shares.
 - See a QR code, connection status, and simple live activity counters.
 - Use your own Cloudflare-managed hostname when a random URL is not suitable.
 - Diagnose why a local app or link is unavailable without exposing page contents in the report.
@@ -59,16 +59,16 @@ GhostlyShare does not publish an app merely because it was detected. A share sta
 
 ```bash
 ghs scan
-ghs lan 5173
 ghs share 5173
+ghs lan 5173
 ```
 
-`ghs lan` and `ghs share` stay active until you press `Ctrl+C` or the configured expiry is reached. See the [CLI guide](wiki/Command-Line-Interface.md) for useful examples.
+`ghs share` and `ghs lan` stay active until you press `Ctrl+C` or the configured expiry is reached. See the [CLI guide](wiki/Command-Line-Interface.md) for useful examples.
 
 ## Share Safely
 
-- Use LAN sharing only on a trusted network. Its optional password is an access gate, but LAN traffic remains unencrypted.
 - Anyone who receives a public URL may try to open it. Add a password when appropriate.
+- Use LAN sharing only on a trusted network. Its optional password is an access gate, but LAN traffic remains unencrypted.
 - Do not expose private admin panels, databases, secrets, customer data, or services you are not authorized to share.
 - Stop sharing as soon as the test or review is finished.
 
@@ -78,8 +78,8 @@ Read [Security and Privacy](wiki/Security-and-Privacy.md) before sharing a sensi
 
 - [Getting Started](wiki/Getting-Started.md)
 - [Installation and Updates](wiki/Installation.md)
-- [LAN Sharing](wiki/LAN-Sharing.md)
 - [Public Sharing](wiki/Going-Public.md)
+- [LAN Sharing](wiki/LAN-Sharing.md)
 - [Command Line](wiki/Command-Line-Interface.md)
 - [Troubleshooting](wiki/Troubleshooting.md)
 - [Complete User Guide](wiki/Home.md)

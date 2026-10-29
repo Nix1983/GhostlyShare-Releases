@@ -5,10 +5,10 @@ GhostlyShare provides a desktop app and the optional `ghs` CLI for x64 Windows a
 ## Available on Both Platforms
 
 - Automatic local app discovery and diagnostics.
-- LAN sharing with optional password and expiry.
 - Random public links and Cloudflare custom domains.
 - Public password protection and expiry.
-- QR codes and simple LAN/Public activity counters.
+- LAN sharing with optional password and expiry.
+- QR codes and simple Public/LAN activity counters.
 - Windows-default, Firefox, Chrome, and Edge browser choices where installed.
 - Docker discovery when the container exposes a host-accessible local endpoint.
 

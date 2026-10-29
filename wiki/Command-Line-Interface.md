@@ -2,15 +2,15 @@
 
 The GhostlyShare command is `ghs`. Install the separate Windows or Linux CLI package when you want to scan and share from a terminal, server, script, or CI job.
 
-There is no background daemon. A LAN or public link remains active only while its `ghs` process is running or until its expiry is reached.
+There is no background daemon. A public or LAN link remains active only while its `ghs` process is running or until its expiry is reached.
 
 ## Help and Version
 
 ```bash
 ghs --help
 ghs help scan
-ghs help lan
 ghs help share
+ghs help lan
 ghs version
 ```
 
@@ -38,45 +38,14 @@ ghs scan --diagnostics --json
    ```
 
 3. Check that the listed name, port, and local URL belong to the intended app.
-4. Start LAN sharing:
+4. Create a public link:
 
    ```bash
-   ghs lan 5173
+   ghs share 5173
    ```
 
-5. Open the printed LAN URL on a phone connected to the same trusted network.
+5. Open the printed HTTPS URL in another browser or send it to the intended visitor.
 6. Return to the terminal and press `Ctrl+C` to stop sharing.
-
-## Share on the LAN
-
-```bash
-ghs lan <port|url> [options]
-```
-
-Useful examples:
-
-```bash
-ghs lan 5173
-ghs lan http://localhost:3000
-ghs lan 5173 --interface Wi-Fi
-ghs lan 5173 --password
-ghs lan 5173 --expires-after 30m
-ghs lan 5173 --url-only
-ghs lan 5173 --json
-```
-
-LAN options:
-
-- `--interface <name|id|ipv4>` selects a network adapter.
-- `--password` asks for a password securely.
-- `--password-env <name>` reads the password from an environment variable.
-- `--password-attempts <3-10>` sets wrong attempts before a five-minute lockout.
-- `--password-session-minutes <5-1440>` sets how long an unlocked browser remains valid.
-- `--expires-after <duration|today>` stops the link automatically.
-- `--url-only` prints only the ready LAN URL.
-- `--json` prints machine-readable events.
-
-LAN uses plain HTTP. Its password is an access gate, not transport encryption. Use it only on a trusted network.
 
 ## Share Publicly
 
@@ -109,7 +78,38 @@ Public options:
 
 Password length is 8 to 32 characters.
 
-Expiry examples for either `lan` or `share`:
+## Share on the LAN
+
+```bash
+ghs lan <port|url> [options]
+```
+
+Useful examples:
+
+```bash
+ghs lan 5173
+ghs lan http://localhost:3000
+ghs lan 5173 --interface Wi-Fi
+ghs lan 5173 --password
+ghs lan 5173 --expires-after 30m
+ghs lan 5173 --url-only
+ghs lan 5173 --json
+```
+
+LAN options:
+
+- `--interface <name|id|ipv4>` selects a network adapter.
+- `--password` asks for a password securely.
+- `--password-env <name>` reads the password from an environment variable.
+- `--password-attempts <3-10>` sets wrong attempts before a five-minute lockout.
+- `--password-session-minutes <5-1440>` sets how long an unlocked browser remains valid.
+- `--expires-after <duration|today>` stops the link automatically.
+- `--url-only` prints only the ready LAN URL.
+- `--json` prints machine-readable events.
+
+LAN uses plain HTTP. Its password is an access gate, not transport encryption. Use it only on a trusted network.
+
+Expiry examples for either `share` or `lan`:
 
 ```bash
 ghs share 5173 --expires-after 30m
@@ -149,18 +149,20 @@ Doctor checks common network, proxy, DNS, credential-storage, and public-connect
 
 When no apps are found, the successful result is `[]`.
 
-`ghs lan --json` and `ghs share --json` print newline-delimited JSON: every line is a complete event object. The values below are examples, while the field and event names are the exact 1.3.8.0 format:
-
-```json
-{"event":"lan_starting","port":5173}
-{"event":"lan_ready","url":"http://192.168.1.20:49152/","localUrl":"http://127.0.0.1:5173","interfaceName":"Wi-Fi","address":"192.168.1.20","expiresAtUtc":null}
-```
+`ghs share --json` and `ghs lan --json` print newline-delimited JSON: every line is a complete event object. The values below are examples, while the field and event names are the exact 1.3.8.0 format.
 
 A public share uses `starting` and `ready` events:
 
 ```json
 {"event":"starting","port":5173}
 {"event":"ready","url":"https://example.trycloudflare.com","localUrl":"http://127.0.0.1:5173"}
+```
+
+LAN sharing uses `lan_starting` and `lan_ready` events:
+
+```json
+{"event":"lan_starting","port":5173}
+{"event":"lan_ready","url":"http://192.168.1.20:49152/","localUrl":"http://127.0.0.1:5173","interfaceName":"Wi-Fi","address":"192.168.1.20","expiresAtUtc":null}
 ```
 
 When expiry is enabled, a `ready` event also contains `expiresAtUtc` as an ISO 8601 timestamp.
@@ -175,12 +177,12 @@ Not every error is a JSON event. Parser errors and some public-share startup err
 
 ## Scripting and Automation
 
-Press `Ctrl+C` to stop the owning LAN or public session. Custom-domain resources created by that command are cleaned up as the command exits.
+Press `Ctrl+C` to stop the owning public or LAN session. Custom-domain resources created by that command are cleaned up as the command exits.
 
 - `--json` and `--url-only` cannot be combined.
 - `--password` and `--password-env` cannot be combined.
 - `--password` prompts interactively for the password and confirmation. Use `--password-env <name>` for unattended scripts and protect that environment variable from logs.
 - `--url-only` writes the ready URL to standard output; progress and errors use standard error.
-- `lan` and `share` remain in the foreground for the lifetime of the link. Keep the process running until the caller intentionally stops it.
+- `share` and `lan` remain in the foreground for the lifetime of the link. Keep the process running until the caller intentionally stops it.
 
 A non-zero exit code means startup, the active share, or cleanup failed. Read standard error or the JSON failure event for the reason. Avoid printing passwords, tokens, and private URLs in CI logs.

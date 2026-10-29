@@ -1,6 +1,6 @@
 # GhostlyShare Responsible Use
 
-GhostlyShare helps you share local apps, APIs, and development services over a trusted local network or through a temporary public link.
+GhostlyShare helps you share local apps, APIs, and development services through a temporary public link or over a trusted local network.
 
 GhostlyShare is intended for lawful development, testing, demonstrations, webhook testing, device checks, and short reviews of services you own or are authorized to share.
 
@@ -26,17 +26,17 @@ You may not use GhostlyShare for:
 - Sharing leaked credentials, stolen data, confidential information, or personal data without permission.
 - Bypassing laws, platform policies, network restrictions, or abuse-prevention systems.
 
-## LAN Links
-
-A LAN link can be opened by devices on the selected local network. Its optional GhostlyShare password is an access gate, but the LAN connection remains unencrypted.
-
-Use LAN sharing only on a trusted network. Guest Wi-Fi, shared office networks, hotels, schools, and public hotspots should be treated as untrusted even when a password is enabled. Stop LAN sharing when the device test is finished.
-
 ## Public Links
 
 A public link can be reached by anyone who obtains the URL. Random URLs are difficult to guess, but they are not private access control.
 
 Password protection can reduce accidental access. It is not a full authentication system, a security audit, or a guarantee that the local app is safe to expose.
+
+## LAN Links
+
+A LAN link can be opened by devices on the selected local network. Its optional GhostlyShare password is an access gate, but the LAN connection remains unencrypted.
+
+Use LAN sharing only on a trusted network. Guest Wi-Fi, shared office networks, hotels, schools, and public hotspots should be treated as untrusted even when a password is enabled. Stop LAN sharing when the device test is finished.
 
 ## Temporary Development Sharing
 

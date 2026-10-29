@@ -2,15 +2,15 @@
 
 - GhostlyShare is intended for temporary development sharing, not permanent production hosting.
 - The local app, GhostlyShare, and the computer must remain running and awake.
-- LAN sharing currently uses private IPv4 and plain HTTP. Its optional password does not encrypt traffic.
-- LAN sessions are not restored after GhostlyShare restarts.
-- A VM using NAT can receive a LAN address that physical devices cannot reach; bridged networking is usually required for that test.
 - The desktop app keeps up to three random public URLs during its current run. A fourth active random share cannot start until a place is available.
 - Cloudflare can temporarily limit creation of new random public links.
 - Random URLs can change after GhostlyShare restarts or when an old inactive URL is released.
 - A new public hostname can need a short readiness delay.
 - Link lifetime is limited to `40d23h59m`.
 - Custom domains require a Cloudflare-managed zone and a suitable scoped API token.
+- LAN sharing currently uses private IPv4 and plain HTTP. Its optional password does not encrypt traffic.
+- LAN sessions are not restored after GhostlyShare restarts.
+- A VM using NAT can receive a LAN address that physical devices cannot reach; bridged networking is usually required for that test.
 - When several distinct endpoints share a port, use the exact local URL in the CLI.
 - The CLI has no background daemon and no separate `list` or `stop` command.
 - Current public packages target x64 Windows and x86_64 Linux. There is no public macOS or ARM package.

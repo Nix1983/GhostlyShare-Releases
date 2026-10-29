@@ -4,8 +4,8 @@ You do not need to uninstall GhostlyShare before updating it. Follow [Updating a
 
 ## Before Uninstalling
 
-1. Stop every LAN and public share.
-2. End running `ghs lan` and `ghs share` commands with `Ctrl+C`.
+1. Stop every public and LAN share.
+2. End running `ghs share` and `ghs lan` commands with `Ctrl+C`.
 3. Fully quit the desktop app so it can close its helper processes and clean up its temporary custom-domain resources.
 4. Remove the saved Cloudflare token if you no longer want it stored:
    - Desktop: open the Cloudflare API-token section in **Settings** and choose **Delete**.
