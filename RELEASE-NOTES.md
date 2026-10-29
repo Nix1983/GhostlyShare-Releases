@@ -2,6 +2,18 @@
 
 These notes summarize changes that affect people using the published GhostlyShare downloads. Internal refactoring and test-only changes are intentionally omitted.
 
+## 1.3.9.0 — October 29, 2026
+
+### Better tray access on Linux
+
+- Added a native tray menu with **Open**, **Minimize**, and **Quit** actions.
+- The menu switches between **Open** and **Minimize** to match the current window state.
+- On XFCE setups where the panel opens the tray menu instead of sending a normal click to GhostlyShare, **Open** now provides a reliable way to restore the existing window.
+- The normal tray click continues to work on desktops that support it.
+- The menu uses clear action icons and reuses GhostlyShare's existing safe shutdown flow for **Quit**.
+
+GNOME installations without AppIndicator support may still have no tray icon. Restore GhostlyShare from the dock, Overview, or application launcher on those systems.
+
 ## 1.3.8.0 — October 28, 2026
 
 ### Linux window recovery

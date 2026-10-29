@@ -141,7 +141,7 @@ Doctor checks common network, proxy, DNS, credential-storage, and public-connect
 
 ## Machine-Readable Output
 
-`ghs scan --json` prints one JSON array. This is real output from the published 1.3.8.0 CLI against the GhostlyShare test app:
+`ghs scan --json` prints one JSON array. This is real output from the published 1.3.9.0 CLI against the GhostlyShare test app:
 
 ```json
 [{"port":5101,"name":"Static HTML Test App","url":"http://127.0.0.1:5101"}]
@@ -149,7 +149,7 @@ Doctor checks common network, proxy, DNS, credential-storage, and public-connect
 
 When no apps are found, the successful result is `[]`.
 
-`ghs share --json` and `ghs lan --json` print newline-delimited JSON: every line is a complete event object. The values below are examples, while the field and event names are the exact 1.3.8.0 format.
+`ghs share --json` and `ghs lan --json` print newline-delimited JSON: every line is a complete event object. The values below are examples, while the field and event names are the exact 1.3.9.0 format.
 
 A public share uses `starting` and `ready` events:
 
